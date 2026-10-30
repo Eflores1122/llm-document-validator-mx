@@ -1,0 +1,67 @@
+{
+  "case_id": "EXP-0003",
+  "defects": [],
+  "notes": [
+    "The contract start is exactly at the allowed gap and should pass."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Camila Castro Silva",
+      "rfc": "CASC790315YR9",
+      "curp": "CASC790315MPLSLM35",
+      "birth_date": "1979-03-15",
+      "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Camila Castro Silva",
+      "rfc": "CASC790315YR9",
+      "curp": "CASC790315MPLSLM35",
+      "postal_code": "72000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Camila Castro Silva",
+      "street": "Privada Cedro 12",
+      "neighborhood": "Los Encinos",
+      "city": "Puebla",
+      "state": "Puebla",
+      "postal_code": "72000",
+      "issue_date": "2026-08-22",
+      "issuer": "Red Fibra Inventada SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Camila Castro Silva",
+      "rfc": "CASC790315YR9",
+      "curp": "CASC790315MPLSLM35",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Especialista de capacitacion",
+      "signed_date": "2026-10-05",
+      "start_date": "2026-10-08",
+      "contract_kind": "Carta oferta"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on CASC790315YR9."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on CASC790315MPLSLM35."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-08 vs agreed start 2026-10-01 (7 days <= limit 7); contract signed 2026-10-05 is on or before the start date 2026-10-08."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0010
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: Ana Sofía Silva Castro
+Fecha de nacimiento: 1976-05-10
+Sexo: M
+CURP: SICA760510MNLLSN45
+RFC: SICA760510NVN
+Domicilio: Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000
+Clave de elector ficticia: SYNXJSL65AHEKCZK5J
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

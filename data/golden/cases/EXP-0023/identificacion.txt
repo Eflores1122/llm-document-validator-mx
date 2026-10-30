@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0023
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Daniela Rivera Romero
+Nacimiento: 1991-01-20
+Sexo: M
+Clave CURP: RIRD910120-MMCVMN40
+R.F.C.: RIRD910120-GNN
+Domicilio: Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000
+Clave de elector ficticia: SYNUCQUU7EQSN5HQKT
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

@@ -1,0 +1,16 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0014
+
+CONSTANCIA DE SITUACION FISCAL
+Documento ficticio. No fue emitido por una autoridad.
+Nombre: Héctor Núñez Domínguez
+RFC: NUDH8208152N6
+CURP: NUDH820815HGTNMC79
+Codigo postal fiscal: 37000
+Fecha de emision: 2026-09-10
+Estatus: Activo
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

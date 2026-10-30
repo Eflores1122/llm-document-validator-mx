@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0018
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: Paula García Díaz
+Fecha de nacimiento: 1979-11-03
+Sexo: M
+CURP: GADP791103MNLRZL33
+RFC: GADP791103CBP
+Domicilio: Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000
+Clave de elector ficticia: SYNHLVGBV23NERGVHC
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

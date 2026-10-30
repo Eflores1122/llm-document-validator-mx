@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0012
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Valeria Sánchez Pérez
+Nacimiento: 1993-04-13
+Sexo: M
+Clave CURP: SAPV930413-MQTNRL42
+R.F.C.: SAPV930413-VRE
+Domicilio: Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000
+Clave de elector ficticia: SYNSMSCG5YW5H2NSC5
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

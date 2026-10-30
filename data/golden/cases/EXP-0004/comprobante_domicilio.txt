@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0004
+
+COMPROBANTE DE DOMICILIO
+Emisor: Gas de la Colina Ficticia SA de CV
+Fecha de emision: 2026-08-12
+Cuenta de servicio: SYN-492077
+Cliente: Diego Vargas Ortiz
+Calle: Blvd. Las Dunas 900
+Colonia: San Isidro
+Ciudad: Querétaro
+Estado: Querétaro
+Codigo postal: 76000
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

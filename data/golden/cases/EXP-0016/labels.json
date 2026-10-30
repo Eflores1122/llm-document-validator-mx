@@ -1,0 +1,69 @@
+{
+  "case_id": "EXP-0016",
+  "defects": [
+    "name_mismatch"
+  ],
+  "notes": [
+    "The identificacion name belongs to a different synthetic person."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Alejandro Rojas López",
+      "rfc": "SATR820618FIJ",
+      "curp": "SATR820618MOCNRN39",
+      "birth_date": "1982-06-18",
+      "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Renata Sánchez Torres",
+      "rfc": "SATR820618FIJ",
+      "curp": "SATR820618MOCNRN39",
+      "postal_code": "68000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Renata Sánchez Torres",
+      "street": "Cerrada Bugambilia 18",
+      "neighborhood": "Americana",
+      "city": "Oaxaca de Juárez",
+      "state": "Oaxaca",
+      "postal_code": "68000",
+      "issue_date": "2026-09-11",
+      "issuer": "Gas de la Colina Ficticia SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Renata Sánchez Torres",
+      "rfc": "SATR820618FIJ",
+      "curp": "SATR820618MOCNRN39",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Generalista de personal",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Carta oferta"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": false,
+      "reason": "Name mismatch against hire record 'Renata Sánchez Torres': identificacion 'Alejandro Rojas López'."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on SATR820618FIJ."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on SATR820618MOCNRN39."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

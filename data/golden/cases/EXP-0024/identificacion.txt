@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0024
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Diego Hernández García
+Nacimiento: 1977-05-20
+Sexo: H
+Clave CURP: HEGD770520-HOCRRG77
+R.F.C.: HEGD770520-S2H
+Domicilio: Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000
+Clave de elector ficticia: SYNC5WSBFQBTCM86TM
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

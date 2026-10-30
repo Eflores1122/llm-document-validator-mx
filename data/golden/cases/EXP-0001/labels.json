@@ -1,0 +1,67 @@
+{
+  "case_id": "EXP-0001",
+  "defects": [],
+  "notes": [
+    "The identification summary prints surnames first. This is not a defect."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Ana Sofía Pérez Silva",
+      "rfc": "PESA800408IG8",
+      "curp": "PESA800408MJCRLN18",
+      "birth_date": "1980-04-08",
+      "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Ana Sofía Pérez Silva",
+      "rfc": "PESA800408IG8",
+      "curp": "PESA800408MJCRLN18",
+      "postal_code": "44100",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Ana Sofía Pérez Silva",
+      "street": "Av. Palma 128",
+      "neighborhood": "Centro",
+      "city": "Guadalajara",
+      "state": "Jalisco",
+      "postal_code": "44100",
+      "issue_date": "2026-09-11",
+      "issuer": "Luz del Valle Suministros SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Ana Sofía Pérez Silva",
+      "rfc": "PESA800408IG8",
+      "curp": "PESA800408MJCRLN18",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Analista de reclutamiento",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Tiempo indeterminado"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on PESA800408IG8."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on PESA800408MJCRLN18."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

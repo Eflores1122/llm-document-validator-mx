@@ -1,0 +1,69 @@
+{
+  "case_id": "EXP-0020",
+  "defects": [
+    "contract_start"
+  ],
+  "notes": [
+    "The contract start date falls outside the allowed gap."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Fernando González Ortiz",
+      "rfc": "GOOF780626QVR",
+      "curp": "GOOF780626HQTNRR92",
+      "birth_date": "1978-06-26",
+      "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+      "sex": "H"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Fernando González Ortiz",
+      "rfc": "GOOF780626QVR",
+      "curp": "GOOF780626HQTNRR92",
+      "postal_code": "76000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Fernando González Ortiz",
+      "street": "Blvd. Las Dunas 900",
+      "neighborhood": "San Isidro",
+      "city": "Querétaro",
+      "state": "Querétaro",
+      "postal_code": "76000",
+      "issue_date": "2026-08-02",
+      "issuer": "Gas de la Colina Ficticia SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Fernando González Ortiz",
+      "rfc": "GOOF780626QVR",
+      "curp": "GOOF780626HQTNRR92",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Auxiliar administrativo",
+      "signed_date": "2026-10-28",
+      "start_date": "2026-10-31",
+      "contract_kind": "Carta oferta"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on GOOF780626QVR."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on GOOF780626HQTNRR92."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-08-02 is 60 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": false,
+      "reason": "contract start 2026-10-31 vs agreed start 2026-10-01 (30 days > limit 7)."
+    }
+  }
+}

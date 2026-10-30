@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0014
+
+CONTRATO LABORAL
+Empleador: Talento Bajio SA de CV
+Trabajador: Hector Nunez Dominguez
+RFC: NUDH8208152N6
+CURP: NUDH820815HGTNMC79
+Puesto: Supervisor de sucursal
+Cliente de asignacion: Panaderia La Espiga Inventada SA de CV
+Fecha de inicio: 2026-10-01
+Fecha de firma: 2026-09-28
+Tipo: Tiempo indeterminado
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

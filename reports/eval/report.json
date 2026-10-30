@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "dataset": "docval-golden-mx-onboarding",
+  "seed": 42,
+  "cases": 24,
+  "positive_class": "fail",
+  "parser_backend": "local:pdfplumber",
+  "extractor_backend": "deterministic",
+  "contract_max_gap_days": 7,
+  "address_max_age_days": 90,
+  "timing": {
+    "mean_ms": 0.405,
+    "p50_ms": 0.337,
+    "p95_ms": 1.002,
+    "max_ms": 1.626,
+    "total_ms": 9.726
+  },
+  "rules": {
+    "name_consistency": {
+      "tp": 4,
+      "fp": 0,
+      "tn": 20,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "accuracy": 1.0,
+      "support_fail": 4,
+      "support_pass": 20
+    },
+    "rfc_consistency": {
+      "tp": 4,
+      "fp": 0,
+      "tn": 20,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "accuracy": 1.0,
+      "support_fail": 4,
+      "support_pass": 20
+    },
+    "curp_consistency": {
+      "tp": 2,
+      "fp": 0,
+      "tn": 22,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "accuracy": 1.0,
+      "support_fail": 2,
+      "support_pass": 22
+    },
+    "address_recency": {
+      "tp": 6,
+      "fp": 0,
+      "tn": 18,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "accuracy": 1.0,
+      "support_fail": 6,
+      "support_pass": 18
+    },
+    "contract_dates": {
+      "tp": 6,
+      "fp": 0,
+      "tn": 18,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "accuracy": 1.0,
+      "support_fail": 6,
+      "support_pass": 18
+    }
+  },
+  "overall": {
+    "tp": 18,
+    "fp": 0,
+    "tn": 6,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "accuracy": 1.0,
+    "support_fail": 18,
+    "support_pass": 6
+  },
+  "fields": {
+    "tp": 670,
+    "fp": 0,
+    "tn": 2,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "accuracy": 1.0,
+    "support_fail": 670,
+    "support_pass": 2,
+    "slots": 672,
+    "exact_matches": 672,
+    "by_document": {
+      "identificacion": {
+        "tp": 144,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0,
+        "support_fail": 144,
+        "support_pass": 0,
+        "slots": 144,
+        "exact_matches": 144
+      },
+      "constancia_fiscal": {
+        "tp": 144,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0,
+        "support_fail": 144,
+        "support_pass": 0,
+        "slots": 144,
+        "exact_matches": 144
+      },
+      "comprobante_domicilio": {
+        "tp": 192,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0,
+        "support_fail": 192,
+        "support_pass": 0,
+        "slots": 192,
+        "exact_matches": 192
+      },
+      "contrato": {
+        "tp": 190,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0,
+        "support_fail": 190,
+        "support_pass": 2,
+        "slots": 192,
+        "exact_matches": 192
+      }
+    }
+  },
+  "disagreements": [],
+  "case_results": [
+    {
+      "case_id": "EXP-0001",
+      "overall_passed": true,
+      "elapsed_ms": 1.626,
+      "failed_rules": [],
+      "defects": []
+    },
+    {
+      "case_id": "EXP-0002",
+      "overall_passed": true,
+      "elapsed_ms": 0.273,
+      "failed_rules": [],
+      "defects": []
+    },
+    {
+      "case_id": "EXP-0003",
+      "overall_passed": true,
+      "elapsed_ms": 1.103,
+      "failed_rules": [],
+      "defects": []
+    },
+    {
+      "case_id": "EXP-0004",
+      "overall_passed": false,
+      "elapsed_ms": 0.362,
+      "failed_rules": [
+        "name_consistency"
+      ],
+      "defects": [
+        "name_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0005",
+      "overall_passed": false,
+      "elapsed_ms": 0.254,
+      "failed_rules": [
+        "rfc_consistency"
+      ],
+      "defects": [
+        "rfc_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0006",
+      "overall_passed": false,
+      "elapsed_ms": 0.266,
+      "failed_rules": [
+        "curp_consistency"
+      ],
+      "defects": [
+        "curp_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0007",
+      "overall_passed": false,
+      "elapsed_ms": 0.346,
+      "failed_rules": [
+        "address_recency"
+      ],
+      "defects": [
+        "stale_address"
+      ]
+    },
+    {
+      "case_id": "EXP-0008",
+      "overall_passed": false,
+      "elapsed_ms": 0.341,
+      "failed_rules": [
+        "contract_dates"
+      ],
+      "defects": [
+        "contract_start"
+      ]
+    },
+    {
+      "case_id": "EXP-0009",
+      "overall_passed": false,
+      "elapsed_ms": 0.267,
+      "failed_rules": [
+        "contract_dates"
+      ],
+      "defects": [
+        "missing_signature"
+      ]
+    },
+    {
+      "case_id": "EXP-0010",
+      "overall_passed": false,
+      "elapsed_ms": 0.274,
+      "failed_rules": [
+        "address_recency"
+      ],
+      "defects": [
+        "future_address"
+      ]
+    },
+    {
+      "case_id": "EXP-0011",
+      "overall_passed": false,
+      "elapsed_ms": 0.401,
+      "failed_rules": [
+        "name_consistency",
+        "rfc_consistency"
+      ],
+      "defects": [
+        "name_mismatch",
+        "rfc_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0012",
+      "overall_passed": false,
+      "elapsed_ms": 0.341,
+      "failed_rules": [
+        "address_recency",
+        "contract_dates"
+      ],
+      "defects": [
+        "stale_address",
+        "contract_start"
+      ]
+    },
+    {
+      "case_id": "EXP-0013",
+      "overall_passed": true,
+      "elapsed_ms": 0.327,
+      "failed_rules": [],
+      "defects": []
+    },
+    {
+      "case_id": "EXP-0014",
+      "overall_passed": true,
+      "elapsed_ms": 0.29,
+      "failed_rules": [],
+      "defects": []
+    },
+    {
+      "case_id": "EXP-0015",
+      "overall_passed": true,
+      "elapsed_ms": 0.345,
+      "failed_rules": [],
+      "defects": []
+    },
+    {
+      "case_id": "EXP-0016",
+      "overall_passed": false,
+      "elapsed_ms": 0.394,
+      "failed_rules": [
+        "name_consistency"
+      ],
+      "defects": [
+        "name_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0017",
+      "overall_passed": false,
+      "elapsed_ms": 0.258,
+      "failed_rules": [
+        "rfc_consistency"
+      ],
+      "defects": [
+        "rfc_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0018",
+      "overall_passed": false,
+      "elapsed_ms": 0.263,
+      "failed_rules": [
+        "curp_consistency"
+      ],
+      "defects": [
+        "curp_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0019",
+      "overall_passed": false,
+      "elapsed_ms": 0.432,
+      "failed_rules": [
+        "address_recency"
+      ],
+      "defects": [
+        "stale_address"
+      ]
+    },
+    {
+      "case_id": "EXP-0020",
+      "overall_passed": false,
+      "elapsed_ms": 0.332,
+      "failed_rules": [
+        "contract_dates"
+      ],
+      "defects": [
+        "contract_start"
+      ]
+    },
+    {
+      "case_id": "EXP-0021",
+      "overall_passed": false,
+      "elapsed_ms": 0.247,
+      "failed_rules": [
+        "contract_dates"
+      ],
+      "defects": [
+        "missing_signature"
+      ]
+    },
+    {
+      "case_id": "EXP-0022",
+      "overall_passed": false,
+      "elapsed_ms": 0.266,
+      "failed_rules": [
+        "address_recency"
+      ],
+      "defects": [
+        "future_address"
+      ]
+    },
+    {
+      "case_id": "EXP-0023",
+      "overall_passed": false,
+      "elapsed_ms": 0.369,
+      "failed_rules": [
+        "name_consistency",
+        "rfc_consistency"
+      ],
+      "defects": [
+        "name_mismatch",
+        "rfc_mismatch"
+      ]
+    },
+    {
+      "case_id": "EXP-0024",
+      "overall_passed": false,
+      "elapsed_ms": 0.349,
+      "failed_rules": [
+        "address_recency",
+        "contract_dates"
+      ],
+      "defects": [
+        "stale_address",
+        "contract_start"
+      ]
+    }
+  ]
+}

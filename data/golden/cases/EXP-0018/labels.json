@@ -1,0 +1,69 @@
+{
+  "case_id": "EXP-0018",
+  "defects": [
+    "curp_mismatch"
+  ],
+  "notes": [
+    "The constancia_fiscal CURP differs by one character."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Paula García Díaz",
+      "rfc": "GADP791103CBP",
+      "curp": "GADP791103MNLRZL33",
+      "birth_date": "1979-11-03",
+      "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Paula García Díaz",
+      "rfc": "GADP791103CBP",
+      "curp": "GADP791103MNLRZLK3",
+      "postal_code": "64000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Paula García Díaz",
+      "street": "Calle Gardenia 45",
+      "neighborhood": "El Mirador",
+      "city": "Monterrey",
+      "state": "Nuevo León",
+      "postal_code": "64000",
+      "issue_date": "2026-08-22",
+      "issuer": "Agua Serena Servicios SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Paula García Díaz",
+      "rfc": "GADP791103CBP",
+      "curp": "GADP791103MNLRZL33",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Coordinacion de operaciones",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Tiempo indeterminado"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on GADP791103CBP."
+    },
+    "curp_consistency": {
+      "passed": false,
+      "reason": "CURP mismatch: hire_record GADP791103MNLRZL33, identificacion GADP791103MNLRZL33, constancia_fiscal GADP791103MNLRZLK3, contrato GADP791103MNLRZL33."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

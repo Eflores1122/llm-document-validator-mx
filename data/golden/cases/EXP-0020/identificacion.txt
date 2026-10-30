@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0020
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Fernando González Ortiz
+Nacimiento: 1978-06-26
+Sexo: H
+Clave CURP: GOOF780626-HQTNRR92
+R.F.C.: GOOF780626-QVR
+Domicilio: Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000
+Clave de elector ficticia: SYNR896BFUQ3RVZ8Y5
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

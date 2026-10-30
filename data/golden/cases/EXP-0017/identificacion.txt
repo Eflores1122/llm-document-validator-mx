@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0017
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: Valeria Torres Morales
+Fecha de nacimiento: 1987-01-13
+Sexo: M
+CURP: TOMV870113MJCRRL77
+RFC: TOMV870113VZK
+Domicilio: Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100
+Clave de elector ficticia: SYNDS2WP7WX2T4SF8B
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

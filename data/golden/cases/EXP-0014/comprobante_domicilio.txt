@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0014
+
+COMPROBANTE DE DOMICILIO
+Emisor: Agua Serena Servicios SA de CV
+Fecha de emision: 2026-07-03
+Cuenta de servicio: SYN-254739
+Nombre: Héctor Núñez Domínguez
+Calle: Av. del Mezquite 250 Int. 2
+Colonia: Reforma
+Ciudad: León
+Estado: Guanajuato
+Codigo postal: 37000
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

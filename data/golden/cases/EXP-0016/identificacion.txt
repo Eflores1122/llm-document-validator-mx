@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0016
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Alejandro Rojas López
+Nacimiento: 1982-06-18
+Sexo: M
+Clave CURP: SATR820618-MOCNRN39
+R.F.C.: SATR820618-FIJ
+Domicilio: Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000
+Clave de elector ficticia: SYN74DP42B28AYV24Q
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

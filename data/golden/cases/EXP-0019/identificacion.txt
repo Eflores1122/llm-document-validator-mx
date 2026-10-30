@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0019
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Paula Morales Vega
+Nacimiento: 1983-02-17
+Sexo: M
+Clave CURP: MOVP830217-MPLRGL78
+R.F.C.: MOVP830217-VA0
+Domicilio: Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000
+Clave de elector ficticia: SYNT875TWRFT6R72XB
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

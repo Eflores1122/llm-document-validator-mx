@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0015
+
+COMPROBANTE DE DOMICILIO
+Emisor: Red Fibra Inventada SA de CV
+Fecha de emision: 2026-08-02
+Cuenta de servicio: SYN-848206
+Cliente: María Fernanda Salazar Mendoza
+Calle: Calle Magnolia 33
+Colonia: Las Flores
+Ciudad: Toluca
+Estado: Estado de México
+Codigo postal: 50000
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

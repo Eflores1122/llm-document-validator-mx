@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0013
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: CORTÉS GUERRERO, RICARDO
+Fecha de nacimiento: 1989-11-24
+Sexo: H
+CURP: COGR891124HYNRRC11
+RFC: COGR891124MX1
+Domicilio: Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000
+Clave de elector ficticia: SYNW3UJN42MV3AVUP5
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

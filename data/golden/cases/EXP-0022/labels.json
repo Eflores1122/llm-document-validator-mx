@@ -1,0 +1,69 @@
+{
+  "case_id": "EXP-0022",
+  "defects": [
+    "future_address"
+  ],
+  "notes": [
+    "Proof of address is dated after the hire date."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Diego Domínguez Vázquez",
+      "rfc": "DOVD960804AS4",
+      "curp": "DOVD960804HGTMZG76",
+      "birth_date": "1996-08-04",
+      "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+      "sex": "H"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Diego Domínguez Vázquez",
+      "rfc": "DOVD960804AS4",
+      "curp": "DOVD960804HGTMZG76",
+      "postal_code": "37000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Diego Domínguez Vázquez",
+      "street": "Av. del Mezquite 250 Int. 2",
+      "neighborhood": "Reforma",
+      "city": "León",
+      "state": "Guanajuato",
+      "postal_code": "37000",
+      "issue_date": "2026-10-06",
+      "issuer": "Agua Serena Servicios SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Diego Domínguez Vázquez",
+      "rfc": "DOVD960804AS4",
+      "curp": "DOVD960804HGTMZG76",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Supervisor de sucursal",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Tiempo indeterminado"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on DOVD960804AS4."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on DOVD960804HGTMZG76."
+    },
+    "address_recency": {
+      "passed": false,
+      "reason": "Proof of address issued 2026-10-06 is after the hire date 2026-10-01."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

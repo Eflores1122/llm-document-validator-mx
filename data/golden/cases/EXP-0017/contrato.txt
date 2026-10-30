@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0017
+
+CONTRATO LABORAL
+Empleador: Talento Bajio SA de CV
+Trabajador: Valeria Torres Morales
+RFC: TOMV870113VZK
+CURP: TOMV870113MJCRRL77
+Puesto: Analista de reclutamiento
+Cliente de asignacion: Nube Clara SA de CV
+Fecha de inicio: 2026-10-01
+Fecha de firma: 2026-09-28
+Tipo: Tiempo indeterminado
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

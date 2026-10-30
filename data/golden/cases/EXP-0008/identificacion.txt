@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0008
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Emilio Rivera Morales
+Nacimiento: 1994-12-26
+Sexo: H
+Clave CURP: RIME941226-HOCVRM37
+R.F.C.: RIME941226-95J
+Domicilio: Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000
+Clave de elector ficticia: SYN8LDFMEER3HRCF4W
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

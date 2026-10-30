@@ -1,0 +1,16 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0012
+
+CONSTANCIA DE SITUACION FISCAL
+Copia ficticia para un expediente de alta. Sin validez oficial.
+Contribuyente: Valeria Sánchez Pérez
+R.F.C.: SAPV930413-VRE
+Clave CURP: SAPV930413-MQTNRL42
+C.P. fiscal: 76000
+Emitida: 2026-09-10
+Situacion: Activo
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

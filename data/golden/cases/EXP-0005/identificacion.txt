@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0005
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: Camila Castro Mendoza
+Fecha de nacimiento: 1988-01-20
+Sexo: M
+CURP: CAMC880120MYNSNM14
+RFC: CAMC880120U5B
+Domicilio: Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000
+Clave de elector ficticia: SYNEJJ8LS5PNV3Z66H
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0021
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: Paula Gómez Díaz
+Fecha de nacimiento: 1994-08-09
+Sexo: M
+CURP: GODP940809MYNMZL12
+RFC: GODP940809TQO
+Domicilio: Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000
+Clave de elector ficticia: SYNTUGNUQZMVAJTCDU
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

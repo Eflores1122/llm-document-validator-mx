@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0022
+
+RESUMEN DE IDENTIFICACION
+Este resumen es ficticio. No es una credencial oficial.
+No contiene fotografia, codigo de barras ni zona MRZ.
+Nombre completo: Diego Domínguez Vázquez
+Fecha de nacimiento: 1996-08-04
+Sexo: H
+CURP: DOVD960804HGTMZG76
+RFC: DOVD960804AS4
+Domicilio: Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000
+Clave de elector ficticia: SYN9EDKKVFRH4Q266V
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

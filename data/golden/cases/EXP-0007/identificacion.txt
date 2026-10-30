@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0007
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Alejandro Silva Gómez
+Nacimiento: 1997-02-08
+Sexo: H
+Clave CURP: SIGA970208-HMCLML76
+R.F.C.: SIGA970208-MM8
+Domicilio: Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000
+Clave de elector ficticia: SYNDAFRL498P3DL2A2
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

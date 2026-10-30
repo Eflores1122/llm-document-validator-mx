@@ -1,0 +1,67 @@
+{
+  "case_id": "EXP-0015",
+  "defects": [],
+  "notes": [
+    "The contract start is exactly at the allowed gap and should pass."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "María Fernanda Salazar Mendoza",
+      "rfc": "SAMM9602251OL",
+      "curp": "SAMM960225MMCLNR87",
+      "birth_date": "1996-02-25",
+      "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "María Fernanda Salazar Mendoza",
+      "rfc": "SAMM9602251OL",
+      "curp": "SAMM960225MMCLNR87",
+      "postal_code": "50000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "María Fernanda Salazar Mendoza",
+      "street": "Calle Magnolia 33",
+      "neighborhood": "Las Flores",
+      "city": "Toluca",
+      "state": "Estado de México",
+      "postal_code": "50000",
+      "issue_date": "2026-08-02",
+      "issuer": "Red Fibra Inventada SA de CV"
+    },
+    "contrato": {
+      "employee_name": "María Fernanda Salazar Mendoza",
+      "rfc": "SAMM9602251OL",
+      "curp": "SAMM960225MMCLNR87",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Asistente de seleccion",
+      "signed_date": "2026-10-05",
+      "start_date": "2026-10-08",
+      "contract_kind": "Carta oferta"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on SAMM9602251OL."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on SAMM960225MMCLNR87."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-08-02 is 60 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-08 vs agreed start 2026-10-01 (7 days <= limit 7); contract signed 2026-10-05 is on or before the start date 2026-10-08."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0008
+
+CARTA OFERTA
+Empresa: Talento Bajio SA de CV
+Candidato: Emilio Rivera Morales
+R.F.C.: RIME941226-95J
+Clave CURP: RIME941226-HOCVRM37
+Puesto ofrecido: Generalista de personal
+Cliente de asignacion: Transportes Cerro Azul SA de CV
+Fecha de ingreso: 2026-10-31
+Fecha de firma: 2026-10-28
+Documento: Carta oferta
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

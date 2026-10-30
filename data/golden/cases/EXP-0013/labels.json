@@ -1,0 +1,67 @@
+{
+  "case_id": "EXP-0013",
+  "defects": [],
+  "notes": [
+    "The identification summary prints surnames first. This is not a defect."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Ricardo Cortés Guerrero",
+      "rfc": "COGR891124MX1",
+      "curp": "COGR891124HYNRRC11",
+      "birth_date": "1989-11-24",
+      "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+      "sex": "H"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Ricardo Cortés Guerrero",
+      "rfc": "COGR891124MX1",
+      "curp": "COGR891124HYNRRC11",
+      "postal_code": "97000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Ricardo Cortés Guerrero",
+      "street": "Callejón del Arte 7",
+      "neighborhood": "La Paz",
+      "city": "Mérida",
+      "state": "Yucatán",
+      "postal_code": "97000",
+      "issue_date": "2026-08-22",
+      "issuer": "Luz del Valle Suministros SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Ricardo Cortés Guerrero",
+      "rfc": "COGR891124MX1",
+      "curp": "COGR891124HYNRRC11",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Enlace operativo",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Tiempo indeterminado"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on COGR891124MX1."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on COGR891124HYNRRC11."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

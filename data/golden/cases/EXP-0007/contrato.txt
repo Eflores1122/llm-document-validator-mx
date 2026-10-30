@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0007
+
+CARTA OFERTA
+Empresa: Talento Bajio SA de CV
+Candidato: Alejandro Silva Gómez
+R.F.C.: SIGA970208-MM8
+Clave CURP: SIGA970208-HMCLML76
+Puesto ofrecido: Asistente de seleccion
+Cliente de asignacion: Estudios Marea Baja SC
+Fecha de ingreso: 2026-10-01
+Fecha de firma: 2026-09-28
+Documento: Carta oferta
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

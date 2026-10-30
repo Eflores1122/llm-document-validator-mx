@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0009
+
+CONTRATO LABORAL
+Empleador: Talento Bajio SA de CV
+Trabajador: Miguel Ángel Vega Rojas
+RFC: VERM820409ZIT
+CURP: VERM820409HJCGJG79
+Puesto: Analista de reclutamiento
+Cliente de asignacion: Nube Clara SA de CV
+Fecha de inicio: 2026-10-01
+Tipo: Tiempo indeterminado
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

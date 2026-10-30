@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0011
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Renata Díaz Salazar
+Nacimiento: 1997-01-12
+Sexo: M
+Clave CURP: DISR970112-MPLZLN54
+R.F.C.: DISR970112-NPG
+Domicilio: Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000
+Clave de elector ficticia: SYNMX4RTLG2C8QN7YV
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

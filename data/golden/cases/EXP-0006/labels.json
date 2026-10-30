@@ -1,0 +1,69 @@
+{
+  "case_id": "EXP-0006",
+  "defects": [
+    "curp_mismatch"
+  ],
+  "notes": [
+    "The constancia_fiscal CURP differs by one character."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Valeria Hernández Gómez",
+      "rfc": "HEGV721018OOA",
+      "curp": "HEGV721018MGTRML11",
+      "birth_date": "1972-10-18",
+      "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Valeria Hernández Gómez",
+      "rfc": "HEGV721018OOA",
+      "curp": "HEGV721018MGTRML19",
+      "postal_code": "37000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Valeria Hernández Gómez",
+      "street": "Av. del Mezquite 250 Int. 2",
+      "neighborhood": "Reforma",
+      "city": "León",
+      "state": "Guanajuato",
+      "postal_code": "37000",
+      "issue_date": "2026-09-11",
+      "issuer": "Agua Serena Servicios SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Valeria Hernández Gómez",
+      "rfc": "HEGV721018OOA",
+      "curp": "HEGV721018MGTRML11",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Supervisor de sucursal",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Tiempo indeterminado"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on HEGV721018OOA."
+    },
+    "curp_consistency": {
+      "passed": false,
+      "reason": "CURP mismatch: hire_record HEGV721018MGTRML11, identificacion HEGV721018MGTRML11, constancia_fiscal HEGV721018MGTRML19, contrato HEGV721018MGTRML11."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

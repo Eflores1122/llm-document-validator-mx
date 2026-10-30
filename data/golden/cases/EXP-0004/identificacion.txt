@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0004
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Mariana Hernández Cruz
+Nacimiento: 1974-01-28
+Sexo: H
+Clave CURP: VAOD740128-HQTRRG64
+R.F.C.: VAOD740128-HJK
+Domicilio: Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000
+Clave de elector ficticia: SYNHTXHU5L7ASMGVNK
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

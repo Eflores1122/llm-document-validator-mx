@@ -1,0 +1,69 @@
+{
+  "case_id": "EXP-0010",
+  "defects": [
+    "future_address"
+  ],
+  "notes": [
+    "Proof of address is dated after the hire date."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Ana Sofía Silva Castro",
+      "rfc": "SICA760510NVN",
+      "curp": "SICA760510MNLLSN45",
+      "birth_date": "1976-05-10",
+      "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Ana Sofía Silva Castro",
+      "rfc": "SICA760510NVN",
+      "curp": "SICA760510MNLLSN45",
+      "postal_code": "64000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "Ana Sofía Silva Castro",
+      "street": "Calle Gardenia 45",
+      "neighborhood": "El Mirador",
+      "city": "Monterrey",
+      "state": "Nuevo León",
+      "postal_code": "64000",
+      "issue_date": "2026-10-06",
+      "issuer": "Agua Serena Servicios SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Ana Sofía Silva Castro",
+      "rfc": "SICA760510NVN",
+      "curp": "SICA760510MNLLSN45",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Coordinacion de operaciones",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Tiempo indeterminado"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": true,
+      "reason": "Names agree across the hire record and all four documents."
+    },
+    "rfc_consistency": {
+      "passed": true,
+      "reason": "RFC agrees on SICA760510NVN."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on SICA760510MNLLSN45."
+    },
+    "address_recency": {
+      "passed": false,
+      "reason": "Proof of address issued 2026-10-06 is after the hire date 2026-10-01."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

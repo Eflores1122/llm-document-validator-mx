@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0003
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: Camila Castro Silva
+Nacimiento: 1979-03-15
+Sexo: M
+Clave CURP: CASC790315-MPLSLM35
+R.F.C.: CASC790315-YR9
+Domicilio: Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000
+Clave de elector ficticia: SYNEPWP937KSJRS53Z
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

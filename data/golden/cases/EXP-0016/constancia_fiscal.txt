@@ -1,0 +1,16 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0016
+
+CONSTANCIA DE SITUACION FISCAL
+Copia ficticia para un expediente de alta. Sin validez oficial.
+Contribuyente: Renata Sánchez Torres
+R.F.C.: SATR820618-FIJ
+Clave CURP: SATR820618-MOCNRN39
+C.P. fiscal: 68000
+Emitida: 2026-09-10
+Situacion: Activo
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

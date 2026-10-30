@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0018
+
+COMPROBANTE DE DOMICILIO
+Emisor: Agua Serena Servicios SA de CV
+Fecha de emision: 2026-08-22
+Cuenta de servicio: SYN-464069
+Nombre: Paula García Díaz
+Calle: Calle Gardenia 45
+Colonia: El Mirador
+Ciudad: Monterrey
+Estado: Nuevo León
+Codigo postal: 64000
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

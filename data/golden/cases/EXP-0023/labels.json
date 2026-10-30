@@ -1,0 +1,71 @@
+{
+  "case_id": "EXP-0023",
+  "defects": [
+    "name_mismatch",
+    "rfc_mismatch"
+  ],
+  "notes": [
+    "The comprobante_domicilio name belongs to a different synthetic person.",
+    "The constancia_fiscal RFC differs by one character."
+  ],
+  "truth": {
+    "identificacion": {
+      "full_name": "Daniela Rivera Romero",
+      "rfc": "RIRD910120GNN",
+      "curp": "RIRD910120MMCVMN40",
+      "birth_date": "1991-01-20",
+      "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+      "sex": "M"
+    },
+    "constancia_fiscal": {
+      "holder_name": "Daniela Rivera Romero",
+      "rfc": "RIRD9101205NN",
+      "curp": "RIRD910120MMCVMN40",
+      "postal_code": "50000",
+      "issue_date": "2026-09-10",
+      "tax_status": "Activo"
+    },
+    "comprobante_domicilio": {
+      "holder_name": "José Luis González Sánchez",
+      "street": "Calle Magnolia 33",
+      "neighborhood": "Las Flores",
+      "city": "Toluca",
+      "state": "Estado de México",
+      "postal_code": "50000",
+      "issue_date": "2026-08-22",
+      "issuer": "Red Fibra Inventada SA de CV"
+    },
+    "contrato": {
+      "employee_name": "Daniela Rivera Romero",
+      "rfc": "RIRD910120GNN",
+      "curp": "RIRD910120MMCVMN40",
+      "employer": "Talento Bajio SA de CV",
+      "role": "Asistente de seleccion",
+      "signed_date": "2026-09-28",
+      "start_date": "2026-10-01",
+      "contract_kind": "Carta oferta"
+    }
+  },
+  "expected_rules": {
+    "name_consistency": {
+      "passed": false,
+      "reason": "Name mismatch against hire record 'Daniela Rivera Romero': comprobante_domicilio 'José Luis González Sánchez'."
+    },
+    "rfc_consistency": {
+      "passed": false,
+      "reason": "RFC mismatch: hire_record RIRD910120GNN, identificacion RIRD910120GNN, constancia_fiscal RIRD9101205NN, contrato RIRD910120GNN."
+    },
+    "curp_consistency": {
+      "passed": true,
+      "reason": "CURP agrees on RIRD910120MMCVMN40."
+    },
+    "address_recency": {
+      "passed": true,
+      "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+    },
+    "contract_dates": {
+      "passed": true,
+      "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+    }
+  }
+}

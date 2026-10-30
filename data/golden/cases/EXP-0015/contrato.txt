@@ -1,0 +1,18 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0015
+
+CARTA OFERTA
+Empresa: Talento Bajio SA de CV
+Candidato: María Fernanda Salazar Mendoza
+R.F.C.: SAMM960225-1OL
+Clave CURP: SAMM960225-MMCLNR87
+Puesto ofrecido: Asistente de seleccion
+Cliente de asignacion: Estudios Marea Baja SC
+Fecha de ingreso: 2026-10-08
+Fecha de firma: 2026-10-05
+Documento: Carta oferta
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

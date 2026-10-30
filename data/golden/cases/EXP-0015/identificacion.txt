@@ -1,0 +1,17 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0015
+
+CONSTANCIA DE IDENTIFICACION
+Documento ficticio con los datos de una identificacion. No es un INE.
+Nombre: María Fernanda Salazar Mendoza
+Nacimiento: 1996-02-25
+Sexo: M
+Clave CURP: SAMM960225-MMCLNR87
+R.F.C.: SAMM960225-1OL
+Domicilio: Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000
+Clave de elector ficticia: SYNW656L86SRT9RT6E
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.

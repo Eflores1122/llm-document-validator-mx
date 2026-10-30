@@ -1,0 +1,16 @@
+DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL
+SYNTHETIC FIXTURE - NOT A REAL DOCUMENT
+Talento Bajio SA de CV - expediente de alta de personal
+Folio de demostracion: EXP-0013
+
+CONSTANCIA DE SITUACION FISCAL
+Documento ficticio. No fue emitido por una autoridad.
+Nombre: Ricardo Cortés Guerrero
+RFC: COGR891124MX1
+CURP: COGR891124HYNRRC11
+Codigo postal fiscal: 97000
+Fecha de emision: 2026-09-10
+Estatus: Activo
+
+Generado por docval como expediente sintetico.
+Documento ficticio. No es un archivo real de un trabajador.
