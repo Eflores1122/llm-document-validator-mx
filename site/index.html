@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docval, revisión de expedientes</title>
+  <meta name="description" content="Revisión en el navegador de expedientes sintéticos de alta de personal: constancia fiscal, comprobante de domicilio, identificación y contrato. Cinco reglas deterministas.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect fill='%231C4E3A' width='16' height='16'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#resultado" data-i18n="skip">Saltar a la revisión</a>
+  <div class="wrap">
+    <header>
+      <p class="wordmark">Docval</p>
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" id="lang-es" aria-pressed="true">ES</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <main>
+      <h1 data-i18n="h1">Revisar el expediente</h1>
+      <p class="lede" data-i18n="lede">Alta de personal sintética de Talento Bajio SA de CV: el navegador extrae los campos y aplica las cinco reglas.</p>
+
+      <div class="folder">
+        <p class="tab" id="folio">EXP-0004</p>
+        <form id="review" class="folder-body">
+          <div class="toolbar">
+            <div class="field">
+              <label for="case" data-i18n="caseLabel">Expediente</label>
+              <select id="case" name="case"></select>
+            </div>
+            <div class="field">
+              <label for="age" data-i18n="ageLabel">Antigüedad máxima del comprobante, días</label>
+              <input id="age" name="age" type="number" min="0" step="1" value="90" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="gap" data-i18n="gapLabel">Holgura del inicio de contrato, días</label>
+              <input id="gap" name="gap" type="number" min="0" step="1" value="7" inputmode="numeric">
+            </div>
+            <div class="actions">
+              <button type="submit" data-i18n="run">Revisar este expediente</button>
+              <button type="button" class="secondary" id="restore" data-i18n="restore">Restaurar el texto</button>
+              <label class="file" for="files" data-i18n="upload">Subir .txt</label>
+              <input id="files" type="file" accept=".txt,text/plain" multiple>
+            </div>
+            <p class="note" id="case-note"></p>
+          </div>
+
+          <div class="result" id="resultado" aria-live="polite">
+            <p class="overall"><strong id="overall">…</strong> <span id="overall-count"></span></p>
+            <p class="meta" id="elapsed"></p>
+            <ul class="readout" id="readout"></ul>
+            <ul class="rules" id="rules"></ul>
+            <p class="meta" id="status"></p>
+            <ul class="warnings" id="warnings"></ul>
+
+            <fieldset>
+              <legend data-i18n="record">Datos del alta</legend>
+              <div class="grid">
+                <div class="field span-2">
+                  <label for="app-name" data-i18n="name">Nombre</label>
+                  <input id="app-name" name="full_name" autocomplete="off">
+                </div>
+                <div class="field">
+                  <label for="app-rfc">RFC</label>
+                  <input id="app-rfc" name="rfc" class="id" autocomplete="off" spellcheck="false">
+                </div>
+                <div class="field">
+                  <label for="app-curp">CURP</label>
+                  <input id="app-curp" name="curp" class="id" autocomplete="off" spellcheck="false">
+                </div>
+                <div class="field">
+                  <label for="app-hire" data-i18n="hire">Fecha de alta</label>
+                  <input id="app-hire" name="hire_date" autocomplete="off">
+                </div>
+                <div class="field">
+                  <label for="app-start" data-i18n="start">Inicio pactado</label>
+                  <input id="app-start" name="agreed_start" autocomplete="off">
+                </div>
+                <div class="field span-2">
+                  <label for="app-address" data-i18n="address">Domicilio en el alta</label>
+                  <input id="app-address" name="address" autocomplete="off">
+                  <p class="hint" id="address-hint" data-i18n="addressHint">La regla no compara esta calle. Solo usa la fecha del comprobante.</p>
+                </div>
+                <div class="field">
+                  <label for="app-case" data-i18n="folio">Folio</label>
+                  <input id="app-case" name="case_id" autocomplete="off">
+                </div>
+              </div>
+            </fieldset>
+
+            <details>
+              <summary data-i18n="json">JSON de esta revisión</summary>
+              <pre id="json-out"></pre>
+            </details>
+          </div>
+
+          <div class="docs">
+            <div class="field">
+              <label for="doc-identificacion" data-i18n="doc-identificacion">Resumen de identificación</label>
+              <textarea id="doc-identificacion" spellcheck="false"></textarea>
+            </div>
+            <div class="field">
+              <label for="doc-constancia_fiscal" data-i18n="doc-constancia_fiscal">Constancia de situación fiscal</label>
+              <textarea id="doc-constancia_fiscal" spellcheck="false"></textarea>
+            </div>
+            <div class="field">
+              <label for="doc-comprobante_domicilio" data-i18n="doc-comprobante_domicilio">Comprobante de domicilio</label>
+              <textarea id="doc-comprobante_domicilio" spellcheck="false"></textarea>
+            </div>
+            <div class="field">
+              <label for="doc-contrato" data-i18n="doc-contrato">Contrato laboral o carta oferta</label>
+              <textarea id="doc-contrato" spellcheck="false"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <section>
+        <h2 data-i18n="rulesTitle">Qué mira cada regla</h2>
+        <p class="meta" data-i18n="reasonNote">El motivo de cada regla sale del motor, en inglés, igual que el JSON del CLI.</p>
+        <dl class="defs">
+          <div>
+            <dt class="id">name_consistency</dt>
+            <dd data-i18n="rule-name">El nombre del alta coincide con la identificación, la constancia, el comprobante y el contrato. Acentos, el orden apellido nombre y una inicial siguen coincidiendo. Un apellido extra en un solo lado no coincide.</dd>
+          </div>
+          <div>
+            <dt class="id">rfc_consistency</dt>
+            <dd data-i18n="rule-rfc">El RFC del alta, la identificación, la constancia y el contrato está presente y es idéntico al quitar espacios y puntuación.</dd>
+          </div>
+          <div>
+            <dt class="id">curp_consistency</dt>
+            <dd data-i18n="rule-curp">La CURP del alta, la identificación y la constancia coincide. Si el contrato imprime CURP, también tiene que coincidir. Si no la imprime, la regla no la exige.</dd>
+          </div>
+          <div>
+            <dt class="id">address_recency</dt>
+            <dd data-i18n="rule-address">El comprobante está fechado el día del alta o antes, y no supera la ventana (90 días en la medición). Una fecha futura falla.</dd>
+          </div>
+          <div>
+            <dt class="id">contract_dates</dt>
+            <dd data-i18n="rule-contract">El inicio del contrato cae dentro de la holgura respecto al inicio pactado (7 días en la medición; el día del límite pasa). La firma existe y no es posterior al inicio. Sin fecha de firma, falla.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section>
+        <h2 data-i18n="measureTitle">Medición del extractor sobre los PDF</h2>
+        <p class="meta" id="measure-source"></p>
+        <div class="table-wrap">
+          <table>
+            <caption data-i18n="ruleCaption">Reglas. La clase positiva es un fallo.</caption>
+            <thead>
+              <tr>
+                <th data-i18n="colRule">Regla</th>
+                <th class="num" data-i18n="colFail">Fallos</th>
+                <th class="num" data-i18n="colPass">Pases</th>
+                <th class="num" data-i18n="colPrecision">Precisión</th>
+                <th class="num" data-i18n="colRecall">Recall</th>
+                <th class="num" data-i18n="colAccuracy">Exactitud</th>
+              </tr>
+            </thead>
+            <tbody id="rule-metrics"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption data-i18n="fieldCaption">Campos extraídos contra el texto impreso.</caption>
+            <thead>
+              <tr>
+                <th data-i18n="colDoc">Documento</th>
+                <th class="num" data-i18n="colSlots">Campos</th>
+                <th class="num" data-i18n="colExact">Coincidencia exacta</th>
+                <th class="num" data-i18n="colPrecision">Precisión</th>
+                <th class="num" data-i18n="colRecall">Recall</th>
+              </tr>
+            </thead>
+            <tbody id="field-metrics"></tbody>
+          </table>
+        </div>
+        <p id="timing"></p>
+      </section>
+
+      <section>
+        <h2 data-i18n="flowTitle">Recorrido de un expediente</h2>
+        <ol class="flow">
+          <li><span class="step">1</span> <span data-i18n="flow1">Cuatro textos y el alta (application.json).</span></li>
+          <li><span class="step">2</span> <span data-i18n="flow2">Extractor determinista, las dos plantillas del generador.</span></li>
+          <li><span class="step">3</span> <span data-i18n="flow3">Cinco reglas sobre nombre, RFC, CURP, fecha del comprobante y fechas del contrato.</span></li>
+          <li><span class="step">4</span> <span data-i18n="flow4">Pasa o falla, con un motivo por regla.</span></li>
+        </ol>
+        <p class="meta" data-i18n="flowNote">En el CLI, el paso 2 puede ser pdfplumber, LlamaParse u OpenAI. Esta página solo corre el extractor determinista sobre texto.</p>
+      </section>
+
+      <section>
+        <h2 data-i18n="limitsTitle">Límites</h2>
+        <ul class="limits">
+          <li data-i18n="lim1">El extractor determinista solo entiende las dos plantillas del generador. Otra redacción deja el campo vacío y la regla que lo necesita falla.</li>
+          <li data-i18n="lim2">Esta página no abre PDF. El comando python -m docval run sí los abre con pdfplumber.</li>
+          <li data-i18n="lim3">LlamaParse y OpenAI no se llaman desde aquí. No hay backend ni llaves en el navegador.</li>
+          <li data-i18n="lim4">RFC y CURP son ficticios. Cada página del dataset trae la leyenda DOCUMENTO FICTICIO.</li>
+          <li data-i18n="lim5">No hay CFDI, estados de cuenta ni documentos de crédito en data/golden. El comprobante es un recibo de servicio ficticio y la constancia es de situación fiscal para el alta.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-i18n="localTitle">La misma revisión en la terminal</h2>
+        <pre><code>python -m docval run data/golden/cases/EXP-0004</code></pre>
+        <p data-i18n="localBody">Ese comando lee los PDF del expediente. EXP-0004 falla solo en name_consistency: la identificación dice Mariana Hernández Cruz y el alta dice Diego Vargas Ortiz.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <a href="https://github.com/Eflores1122">github.com/Eflores1122</a>
+        ·
+        <a href="https://github.com/Eflores1122/llm-document-validator-mx">llm-document-validator-mx</a>
+      </p>
+      <p class="meta" data-i18n="colophon">Atkinson Hyperlegible, porque un RFC y una CURP se leen carácter por carácter y esta fuente separa 0, O, I y l. El verde #1C4E3A es el único acento: tinta de sello sobre un expediente, plana. MIT, Edgar Flores, 2026.</p>
+    </footer>
+  </div>
+  <noscript>
+    <p class="wrap">Hace falta JavaScript para correr las reglas en esta página.</p>
+  </noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

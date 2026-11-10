@@ -32,3 +32,5 @@ jobs:
           OPENAI_API_KEY: ""
           LLAMA_CLOUD_API_KEY: ""
         run: python -m pytest
+      - name: Browser rules match Python
+        run: node site/check-engine.mjs

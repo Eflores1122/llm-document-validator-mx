@@ -1,5 +1,7 @@
 # Docval
 
+Sitio: <https://eflores1122.github.io/llm-document-validator-mx/>
+
 [![CI](https://github.com/Eflores1122/llm-document-validator-mx/actions/workflows/ci.yml/badge.svg)](https://github.com/Eflores1122/llm-document-validator-mx/actions/workflows/ci.yml)
 
 Reference project for an LLM-assisted review of Mexican employee-onboarding files. It builds a fully synthetic expediente for a fictitious staffing company, Talento Bajío (printed on each page as Talento Bajio SA de CV): an identification summary, a constancia de situación fiscal, a comprobante de domicilio, and a contrato laboral or carta oferta. It parses those pages, extracts structured fields, and checks the questions a reviewer asks of a new hire: do the name, RFC, and CURP agree, is the address proof recent, and do the contract dates line up with the agreed start.
@@ -7,6 +9,8 @@ Reference project for an LLM-assisted review of Mexican employee-onboarding file
 This repository is a reference implementation on synthetic data. Every person, client, and identifier below is fictional. RFC and CURP values only follow the public shape of those identifiers; they are not issued by SAT or RENAPO, and the identification summary is not an official credential (no photograph, barcode, or MRZ).
 
 The default path needs no API keys. LlamaParse and OpenAI are optional backends.
+
+The public site runs those same deterministic rules in the browser. It reviews the committed synthetic onboarding files only: an identification summary, a constancia de situación fiscal, a comprobante de domicilio, and a contrato laboral or carta oferta. It does not score credit, bank, or payment documents. This dataset does not contain them, and it does not contain CFDI.
 
 ## Problem
 
@@ -230,6 +234,22 @@ docker run --rm docval:local
 CI is `.github/workflows/ci.yml`. It installs the `dev` extra on Python 3.11 and 3.12, runs Ruff (`ruff check` and `ruff format --check`), and runs pytest with `OPENAI_API_KEY` and `LLAMA_CLOUD_API_KEY` set to empty strings. A test reruns the eval and checks that classification metrics still match `reports/eval/report.json`, and that this README still quotes that report.
 
 Configuration lives in `.env.example`. Thresholds are `DOCVAL_CONTRACT_MAX_GAP_DAYS` (default `7`) and `DOCVAL_ADDRESS_MAX_AGE_DAYS` (default `90`).
+
+## Site
+
+`site/` is the static page linked above. `.github/workflows/pages.yml` publishes it with GitHub Actions on every push to `main`, and `workflow_dispatch` can publish it by hand. The page loads `site/data/site.json`, written by:
+
+```bash
+python3 scripts/export_site_data.py
+```
+
+That file is built from `data/golden` and from `reports/eval/report.json`. `site/engine.js` is a line-by-line port of the deterministic extractor and of `src/docval/rules.py`. Check it against the Python results stored in `site.json`:
+
+```bash
+node site/check-engine.mjs
+```
+
+The page does not parse PDF bytes and does not call LlamaParse or OpenAI. `python -m docval run` remains the path that opens the PDFs. The typeface is Atkinson Hyperlegible (SIL Open Font License, Braille Institute), chosen because a reviewer reads an RFC and a CURP character by character and that face keeps 0, O, I, and l distinct. The only accent color is `#1C4E3A`, a flat stamp-ink green.
 
 ## License
 
