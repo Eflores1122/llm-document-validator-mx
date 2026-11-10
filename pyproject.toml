@@ -43,6 +43,7 @@ docval = "docval.cli:app"
 
 [project.urls]
 Homepage = "https://github.com/Eflores1122/llm-document-validator-mx"
+Documentation = "https://eflores1122.github.io/llm-document-validator-mx/"
 Repository = "https://github.com/Eflores1122/llm-document-validator-mx"
 
 [tool.setuptools.packages.find]

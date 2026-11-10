@@ -1,0 +1,3661 @@
+{
+  "source": {
+    "golden": "data/golden",
+    "dataset": "docval-golden-mx-onboarding",
+    "seed": 42,
+    "case_count": 24,
+    "company": "Talento Bajio SA de CV",
+    "as_of": "2026-10-01",
+    "rules": "src/docval/rules.py",
+    "extractor": "src/docval/extractors.py",
+    "eval_report": "reports/eval/report.json"
+  },
+  "policy": {
+    "address_max_age_days": 90,
+    "contract_max_gap_days": 7
+  },
+  "eval": {
+    "dataset": "docval-golden-mx-onboarding",
+    "seed": 42,
+    "cases": 24,
+    "positive_class": "fail",
+    "parser_backend": "local:pdfplumber",
+    "extractor_backend": "deterministic",
+    "contract_max_gap_days": 7,
+    "address_max_age_days": 90,
+    "timing": {
+      "mean_ms": 0.405,
+      "p50_ms": 0.337,
+      "p95_ms": 1.002,
+      "max_ms": 1.626,
+      "total_ms": 9.726
+    },
+    "rules": {
+      "name_consistency": {
+        "support_fail": 4,
+        "support_pass": 20,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0
+      },
+      "rfc_consistency": {
+        "support_fail": 4,
+        "support_pass": 20,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0
+      },
+      "curp_consistency": {
+        "support_fail": 2,
+        "support_pass": 22,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0
+      },
+      "address_recency": {
+        "support_fail": 6,
+        "support_pass": 18,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0
+      },
+      "contract_dates": {
+        "support_fail": 6,
+        "support_pass": 18,
+        "precision": 1.0,
+        "recall": 1.0,
+        "accuracy": 1.0
+      }
+    },
+    "overall": {
+      "support_fail": 18,
+      "support_pass": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "accuracy": 1.0
+    },
+    "fields": {
+      "slots": 672,
+      "exact_matches": 672,
+      "precision": 1.0,
+      "recall": 1.0,
+      "by_document": {
+        "identificacion": {
+          "slots": 144,
+          "exact_matches": 144,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "constancia_fiscal": {
+          "slots": 144,
+          "exact_matches": 144,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "comprobante_domicilio": {
+          "slots": 192,
+          "exact_matches": 192,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "contrato": {
+          "slots": 192,
+          "exact_matches": 192,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    },
+    "disagreement_count": 0
+  },
+  "cases": [
+    {
+      "case_id": "EXP-0001",
+      "defects": [],
+      "notes": [
+        "The identification summary prints surnames first. This is not a defect."
+      ],
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "Ana Sofía Pérez Silva",
+        "rfc": "PESA800408IG8",
+        "curp": "PESA800408MJCRLN18",
+        "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0001\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: PÉREZ SILVA, ANA SOFÍA\nFecha de nacimiento: 1980-04-08\nSexo: M\nCURP: PESA800408MJCRLN18\nRFC: PESA800408IG8\nDomicilio: Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100\nClave de elector ficticia: SYNN4Q6TAL5XTKPXGF\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0001\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Ana Sofía Pérez Silva\nRFC: PESA800408IG8\nCURP: PESA800408MJCRLN18\nCodigo postal fiscal: 44100\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0001\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Luz del Valle Suministros SA de CV\nFecha de emision: 2026-09-11\nCuenta de servicio: SYN-498382\nNombre: Ana Sofía Pérez Silva\nCalle: Av. Palma 128\nColonia: Centro\nCiudad: Guadalajara\nEstado: Jalisco\nCodigo postal: 44100\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0001\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Ana Sofía Pérez Silva\nRFC: PESA800408IG8\nCURP: PESA800408MJCRLN18\nPuesto: Analista de reclutamiento\nCliente de asignacion: Nube Clara SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": true,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on PESA800408IG8."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on PESA800408MJCRLN18."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "PÉREZ SILVA, ANA SOFÍA",
+            "rfc": "PESA800408IG8",
+            "curp": "PESA800408MJCRLN18",
+            "birth_date": "1980-04-08",
+            "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Ana Sofía Pérez Silva",
+            "rfc": "PESA800408IG8",
+            "curp": "PESA800408MJCRLN18",
+            "postal_code": "44100",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Ana Sofía Pérez Silva",
+            "street": "Av. Palma 128",
+            "neighborhood": "Centro",
+            "city": "Guadalajara",
+            "state": "Jalisco",
+            "postal_code": "44100",
+            "issue_date": "2026-09-11",
+            "issuer": "Luz del Valle Suministros SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Ana Sofía Pérez Silva",
+            "rfc": "PESA800408IG8",
+            "curp": "PESA800408MJCRLN18",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Analista de reclutamiento",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0002",
+      "defects": [],
+      "notes": [
+        "The contract omits accents. This is not a defect.",
+        "Proof of address is exactly 90 days old and should pass."
+      ],
+      "application": {
+        "case_id": "EXP-0002",
+        "hire_date": "2026-10-01",
+        "full_name": "Ana Sofía Díaz Vázquez",
+        "rfc": "DIVA831009C38",
+        "curp": "DIVA831009MNLZZN19",
+        "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0002\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Ana Sofía Díaz Vázquez\nFecha de nacimiento: 1983-10-09\nSexo: M\nCURP: DIVA831009MNLZZN19\nRFC: DIVA831009C38\nDomicilio: Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000\nClave de elector ficticia: SYNQUFQG2T7ZLZYPTE\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0002\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Ana Sofía Díaz Vázquez\nRFC: DIVA831009C38\nCURP: DIVA831009MNLZZN19\nCodigo postal fiscal: 64000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0002\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Agua Serena Servicios SA de CV\nFecha de emision: 2026-07-03\nCuenta de servicio: SYN-738720\nNombre: Ana Sofía Díaz Vázquez\nCalle: Calle Gardenia 45\nColonia: El Mirador\nCiudad: Monterrey\nEstado: Nuevo León\nCodigo postal: 64000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0002\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Ana Sofia Diaz Vazquez\nRFC: DIVA831009C38\nCURP: DIVA831009MNLZZN19\nPuesto: Coordinacion de operaciones\nCliente de asignacion: Taller Sol y Luna SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": true,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on DIVA831009C38."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on DIVA831009MNLZZN19."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Ana Sofía Díaz Vázquez",
+            "rfc": "DIVA831009C38",
+            "curp": "DIVA831009MNLZZN19",
+            "birth_date": "1983-10-09",
+            "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Ana Sofía Díaz Vázquez",
+            "rfc": "DIVA831009C38",
+            "curp": "DIVA831009MNLZZN19",
+            "postal_code": "64000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Ana Sofía Díaz Vázquez",
+            "street": "Calle Gardenia 45",
+            "neighborhood": "El Mirador",
+            "city": "Monterrey",
+            "state": "Nuevo León",
+            "postal_code": "64000",
+            "issue_date": "2026-07-03",
+            "issuer": "Agua Serena Servicios SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Ana Sofia Diaz Vazquez",
+            "rfc": "DIVA831009C38",
+            "curp": "DIVA831009MNLZZN19",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Coordinacion de operaciones",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0003",
+      "defects": [],
+      "notes": [
+        "The contract start is exactly at the allowed gap and should pass."
+      ],
+      "application": {
+        "case_id": "EXP-0003",
+        "hire_date": "2026-10-01",
+        "full_name": "Camila Castro Silva",
+        "rfc": "CASC790315YR9",
+        "curp": "CASC790315MPLSLM35",
+        "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0003\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Camila Castro Silva\nNacimiento: 1979-03-15\nSexo: M\nClave CURP: CASC790315-MPLSLM35\nR.F.C.: CASC790315-YR9\nDomicilio: Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000\nClave de elector ficticia: SYNEPWP937KSJRS53Z\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0003\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Camila Castro Silva\nR.F.C.: CASC790315-YR9\nClave CURP: CASC790315-MPLSLM35\nC.P. fiscal: 72000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0003\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Red Fibra Inventada SA de CV\nFecha de emision: 2026-08-22\nCuenta de servicio: SYN-329974\nCliente: Camila Castro Silva\nCalle: Privada Cedro 12\nColonia: Los Encinos\nCiudad: Puebla\nEstado: Puebla\nCodigo postal: 72000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0003\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Camila Castro Silva\nR.F.C.: CASC790315-YR9\nClave CURP: CASC790315-MPLSLM35\nPuesto ofrecido: Especialista de capacitacion\nCliente de asignacion: Editorial Rio Lento SA de CV\nFecha de ingreso: 2026-10-08\nFecha de firma: 2026-10-05\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": true,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on CASC790315YR9."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on CASC790315MPLSLM35."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-08 vs agreed start 2026-10-01 (7 days <= limit 7); contract signed 2026-10-05 is on or before the start date 2026-10-08."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Camila Castro Silva",
+            "rfc": "CASC790315YR9",
+            "curp": "CASC790315MPLSLM35",
+            "birth_date": "1979-03-15",
+            "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Camila Castro Silva",
+            "rfc": "CASC790315YR9",
+            "curp": "CASC790315MPLSLM35",
+            "postal_code": "72000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Camila Castro Silva",
+            "street": "Privada Cedro 12",
+            "neighborhood": "Los Encinos",
+            "city": "Puebla",
+            "state": "Puebla",
+            "postal_code": "72000",
+            "issue_date": "2026-08-22",
+            "issuer": "Red Fibra Inventada SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Camila Castro Silva",
+            "rfc": "CASC790315YR9",
+            "curp": "CASC790315MPLSLM35",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Especialista de capacitacion",
+            "signed_date": "2026-10-05",
+            "start_date": "2026-10-08",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0004",
+      "defects": [
+        "name_mismatch"
+      ],
+      "notes": [
+        "The identificacion name belongs to a different synthetic person."
+      ],
+      "application": {
+        "case_id": "EXP-0004",
+        "hire_date": "2026-10-01",
+        "full_name": "Diego Vargas Ortiz",
+        "rfc": "VAOD740128HJK",
+        "curp": "VAOD740128HQTRRG64",
+        "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0004\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Mariana Hernández Cruz\nNacimiento: 1974-01-28\nSexo: H\nClave CURP: VAOD740128-HQTRRG64\nR.F.C.: VAOD740128-HJK\nDomicilio: Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000\nClave de elector ficticia: SYNHTXHU5L7ASMGVNK\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0004\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Diego Vargas Ortiz\nR.F.C.: VAOD740128-HJK\nClave CURP: VAOD740128-HQTRRG64\nC.P. fiscal: 76000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0004\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Gas de la Colina Ficticia SA de CV\nFecha de emision: 2026-08-12\nCuenta de servicio: SYN-492077\nCliente: Diego Vargas Ortiz\nCalle: Blvd. Las Dunas 900\nColonia: San Isidro\nCiudad: Querétaro\nEstado: Querétaro\nCodigo postal: 76000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0004\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Diego Vargas Ortiz\nR.F.C.: VAOD740128-HJK\nClave CURP: VAOD740128-HQTRRG64\nPuesto ofrecido: Auxiliar administrativo\nCliente de asignacion: Logistica Bruma del Sur SA de CV\nFecha de ingreso: 2026-10-01\nFecha de firma: 2026-09-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": false,
+            "reason": "Name mismatch against hire record 'Diego Vargas Ortiz': identificacion 'Mariana Hernández Cruz'."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on VAOD740128HJK."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on VAOD740128HQTRRG64."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-12 is 50 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Mariana Hernández Cruz",
+            "rfc": "VAOD740128HJK",
+            "curp": "VAOD740128HQTRRG64",
+            "birth_date": "1974-01-28",
+            "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Diego Vargas Ortiz",
+            "rfc": "VAOD740128HJK",
+            "curp": "VAOD740128HQTRRG64",
+            "postal_code": "76000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Diego Vargas Ortiz",
+            "street": "Blvd. Las Dunas 900",
+            "neighborhood": "San Isidro",
+            "city": "Querétaro",
+            "state": "Querétaro",
+            "postal_code": "76000",
+            "issue_date": "2026-08-12",
+            "issuer": "Gas de la Colina Ficticia SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Diego Vargas Ortiz",
+            "rfc": "VAOD740128HJK",
+            "curp": "VAOD740128HQTRRG64",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Auxiliar administrativo",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0005",
+      "defects": [
+        "rfc_mismatch"
+      ],
+      "notes": [
+        "The constancia_fiscal RFC differs by one character."
+      ],
+      "application": {
+        "case_id": "EXP-0005",
+        "hire_date": "2026-10-01",
+        "full_name": "Camila Castro Mendoza",
+        "rfc": "CAMC880120U5B",
+        "curp": "CAMC880120MYNSNM14",
+        "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0005\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Camila Castro Mendoza\nFecha de nacimiento: 1988-01-20\nSexo: M\nCURP: CAMC880120MYNSNM14\nRFC: CAMC880120U5B\nDomicilio: Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000\nClave de elector ficticia: SYNEJJ8LS5PNV3Z66H\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0005\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Camila Castro Mendoza\nRFC: CAMC88012065B\nCURP: CAMC880120MYNSNM14\nCodigo postal fiscal: 97000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0005\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Luz del Valle Suministros SA de CV\nFecha de emision: 2026-08-02\nCuenta de servicio: SYN-359947\nNombre: Camila Castro Mendoza\nCalle: Callejón del Arte 7\nColonia: La Paz\nCiudad: Mérida\nEstado: Yucatán\nCodigo postal: 97000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0005\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Camila Castro Mendoza\nRFC: CAMC880120U5B\nCURP: CAMC880120MYNSNM14\nPuesto: Enlace operativo\nCliente de asignacion: Consultora Horizonte Ficticio SC\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": false,
+            "reason": "RFC mismatch: hire_record CAMC880120U5B, identificacion CAMC880120U5B, constancia_fiscal CAMC88012065B, contrato CAMC880120U5B."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on CAMC880120MYNSNM14."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-02 is 60 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Camila Castro Mendoza",
+            "rfc": "CAMC880120U5B",
+            "curp": "CAMC880120MYNSNM14",
+            "birth_date": "1988-01-20",
+            "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Camila Castro Mendoza",
+            "rfc": "CAMC88012065B",
+            "curp": "CAMC880120MYNSNM14",
+            "postal_code": "97000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Camila Castro Mendoza",
+            "street": "Callejón del Arte 7",
+            "neighborhood": "La Paz",
+            "city": "Mérida",
+            "state": "Yucatán",
+            "postal_code": "97000",
+            "issue_date": "2026-08-02",
+            "issuer": "Luz del Valle Suministros SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Camila Castro Mendoza",
+            "rfc": "CAMC880120U5B",
+            "curp": "CAMC880120MYNSNM14",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Enlace operativo",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0006",
+      "defects": [
+        "curp_mismatch"
+      ],
+      "notes": [
+        "The constancia_fiscal CURP differs by one character."
+      ],
+      "application": {
+        "case_id": "EXP-0006",
+        "hire_date": "2026-10-01",
+        "full_name": "Valeria Hernández Gómez",
+        "rfc": "HEGV721018OOA",
+        "curp": "HEGV721018MGTRML11",
+        "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0006\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Valeria Hernández Gómez\nFecha de nacimiento: 1972-10-18\nSexo: M\nCURP: HEGV721018MGTRML11\nRFC: HEGV721018OOA\nDomicilio: Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000\nClave de elector ficticia: SYNJ8R84NGG5Y547DG\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0006\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Valeria Hernández Gómez\nRFC: HEGV721018OOA\nCURP: HEGV721018MGTRML19\nCodigo postal fiscal: 37000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0006\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Agua Serena Servicios SA de CV\nFecha de emision: 2026-09-11\nCuenta de servicio: SYN-163556\nNombre: Valeria Hernández Gómez\nCalle: Av. del Mezquite 250 Int. 2\nColonia: Reforma\nCiudad: León\nEstado: Guanajuato\nCodigo postal: 37000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0006\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Valeria Hernández Gómez\nRFC: HEGV721018OOA\nCURP: HEGV721018MGTRML11\nPuesto: Supervisor de sucursal\nCliente de asignacion: Panaderia La Espiga Inventada SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on HEGV721018OOA."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": false,
+            "reason": "CURP mismatch: hire_record HEGV721018MGTRML11, identificacion HEGV721018MGTRML11, constancia_fiscal HEGV721018MGTRML19, contrato HEGV721018MGTRML11."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Valeria Hernández Gómez",
+            "rfc": "HEGV721018OOA",
+            "curp": "HEGV721018MGTRML11",
+            "birth_date": "1972-10-18",
+            "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Valeria Hernández Gómez",
+            "rfc": "HEGV721018OOA",
+            "curp": "HEGV721018MGTRML19",
+            "postal_code": "37000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Valeria Hernández Gómez",
+            "street": "Av. del Mezquite 250 Int. 2",
+            "neighborhood": "Reforma",
+            "city": "León",
+            "state": "Guanajuato",
+            "postal_code": "37000",
+            "issue_date": "2026-09-11",
+            "issuer": "Agua Serena Servicios SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Valeria Hernández Gómez",
+            "rfc": "HEGV721018OOA",
+            "curp": "HEGV721018MGTRML11",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Supervisor de sucursal",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0007",
+      "defects": [
+        "stale_address"
+      ],
+      "notes": [
+        "Proof of address is 151 days old."
+      ],
+      "application": {
+        "case_id": "EXP-0007",
+        "hire_date": "2026-10-01",
+        "full_name": "Alejandro Silva Gómez",
+        "rfc": "SIGA970208MM8",
+        "curp": "SIGA970208HMCLML76",
+        "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0007\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Alejandro Silva Gómez\nNacimiento: 1997-02-08\nSexo: H\nClave CURP: SIGA970208-HMCLML76\nR.F.C.: SIGA970208-MM8\nDomicilio: Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000\nClave de elector ficticia: SYNDAFRL498P3DL2A2\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0007\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Alejandro Silva Gómez\nR.F.C.: SIGA970208-MM8\nClave CURP: SIGA970208-HMCLML76\nC.P. fiscal: 50000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0007\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Red Fibra Inventada SA de CV\nFecha de emision: 2026-05-03\nCuenta de servicio: SYN-378085\nCliente: Alejandro Silva Gómez\nCalle: Calle Magnolia 33\nColonia: Las Flores\nCiudad: Toluca\nEstado: Estado de México\nCodigo postal: 50000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0007\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Alejandro Silva Gómez\nR.F.C.: SIGA970208-MM8\nClave CURP: SIGA970208-HMCLML76\nPuesto ofrecido: Asistente de seleccion\nCliente de asignacion: Estudios Marea Baja SC\nFecha de ingreso: 2026-10-01\nFecha de firma: 2026-09-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on SIGA970208MM8."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on SIGA970208HMCLML76."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address issued 2026-05-03 is 151 days before 2026-10-01 (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Alejandro Silva Gómez",
+            "rfc": "SIGA970208MM8",
+            "curp": "SIGA970208HMCLML76",
+            "birth_date": "1997-02-08",
+            "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Alejandro Silva Gómez",
+            "rfc": "SIGA970208MM8",
+            "curp": "SIGA970208HMCLML76",
+            "postal_code": "50000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Alejandro Silva Gómez",
+            "street": "Calle Magnolia 33",
+            "neighborhood": "Las Flores",
+            "city": "Toluca",
+            "state": "Estado de México",
+            "postal_code": "50000",
+            "issue_date": "2026-05-03",
+            "issuer": "Red Fibra Inventada SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Alejandro Silva Gómez",
+            "rfc": "SIGA970208MM8",
+            "curp": "SIGA970208HMCLML76",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Asistente de seleccion",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0008",
+      "defects": [
+        "contract_start"
+      ],
+      "notes": [
+        "The contract start date falls outside the allowed gap."
+      ],
+      "application": {
+        "case_id": "EXP-0008",
+        "hire_date": "2026-10-01",
+        "full_name": "Emilio Rivera Morales",
+        "rfc": "RIME94122695J",
+        "curp": "RIME941226HOCVRM37",
+        "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0008\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Emilio Rivera Morales\nNacimiento: 1994-12-26\nSexo: H\nClave CURP: RIME941226-HOCVRM37\nR.F.C.: RIME941226-95J\nDomicilio: Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000\nClave de elector ficticia: SYN8LDFMEER3HRCF4W\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0008\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Emilio Rivera Morales\nR.F.C.: RIME941226-95J\nClave CURP: RIME941226-HOCVRM37\nC.P. fiscal: 68000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0008\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Gas de la Colina Ficticia SA de CV\nFecha de emision: 2026-08-22\nCuenta de servicio: SYN-373432\nCliente: Emilio Rivera Morales\nCalle: Cerrada Bugambilia 18\nColonia: Americana\nCiudad: Oaxaca de Juárez\nEstado: Oaxaca\nCodigo postal: 68000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0008\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Emilio Rivera Morales\nR.F.C.: RIME941226-95J\nClave CURP: RIME941226-HOCVRM37\nPuesto ofrecido: Generalista de personal\nCliente de asignacion: Transportes Cerro Azul SA de CV\nFecha de ingreso: 2026-10-31\nFecha de firma: 2026-10-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on RIME94122695J."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on RIME941226HOCVRM37."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract start 2026-10-31 vs agreed start 2026-10-01 (30 days > limit 7)."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Emilio Rivera Morales",
+            "rfc": "RIME94122695J",
+            "curp": "RIME941226HOCVRM37",
+            "birth_date": "1994-12-26",
+            "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Emilio Rivera Morales",
+            "rfc": "RIME94122695J",
+            "curp": "RIME941226HOCVRM37",
+            "postal_code": "68000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Emilio Rivera Morales",
+            "street": "Cerrada Bugambilia 18",
+            "neighborhood": "Americana",
+            "city": "Oaxaca de Juárez",
+            "state": "Oaxaca",
+            "postal_code": "68000",
+            "issue_date": "2026-08-22",
+            "issuer": "Gas de la Colina Ficticia SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Emilio Rivera Morales",
+            "rfc": "RIME94122695J",
+            "curp": "RIME941226HOCVRM37",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Generalista de personal",
+            "signed_date": "2026-10-28",
+            "start_date": "2026-10-31",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0009",
+      "defects": [
+        "missing_signature"
+      ],
+      "notes": [
+        "The contract omits the signature date, so the expediente is incomplete."
+      ],
+      "application": {
+        "case_id": "EXP-0009",
+        "hire_date": "2026-10-01",
+        "full_name": "Miguel Ángel Vega Rojas",
+        "rfc": "VERM820409ZIT",
+        "curp": "VERM820409HJCGJG79",
+        "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0009\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Miguel Ángel Vega Rojas\nFecha de nacimiento: 1982-04-09\nSexo: H\nCURP: VERM820409HJCGJG79\nRFC: VERM820409ZIT\nDomicilio: Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100\nClave de elector ficticia: SYNSJYERZUL6VAVGJS\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0009\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Miguel Ángel Vega Rojas\nRFC: VERM820409ZIT\nCURP: VERM820409HJCGJG79\nCodigo postal fiscal: 44100\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0009\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Luz del Valle Suministros SA de CV\nFecha de emision: 2026-08-12\nCuenta de servicio: SYN-221035\nNombre: Miguel Ángel Vega Rojas\nCalle: Av. Palma 128\nColonia: Centro\nCiudad: Guadalajara\nEstado: Jalisco\nCodigo postal: 44100\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0009\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Miguel Ángel Vega Rojas\nRFC: VERM820409ZIT\nCURP: VERM820409HJCGJG79\nPuesto: Analista de reclutamiento\nCliente de asignacion: Nube Clara SA de CV\nFecha de inicio: 2026-10-01\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on VERM820409ZIT."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on VERM820409HJCGJG79."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-12 is 50 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract signature date is missing."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Miguel Ángel Vega Rojas",
+            "rfc": "VERM820409ZIT",
+            "curp": "VERM820409HJCGJG79",
+            "birth_date": "1982-04-09",
+            "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Miguel Ángel Vega Rojas",
+            "rfc": "VERM820409ZIT",
+            "curp": "VERM820409HJCGJG79",
+            "postal_code": "44100",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Miguel Ángel Vega Rojas",
+            "street": "Av. Palma 128",
+            "neighborhood": "Centro",
+            "city": "Guadalajara",
+            "state": "Jalisco",
+            "postal_code": "44100",
+            "issue_date": "2026-08-12",
+            "issuer": "Luz del Valle Suministros SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Miguel Ángel Vega Rojas",
+            "rfc": "VERM820409ZIT",
+            "curp": "VERM820409HJCGJG79",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Analista de reclutamiento",
+            "signed_date": null,
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0010",
+      "defects": [
+        "future_address"
+      ],
+      "notes": [
+        "Proof of address is dated after the hire date."
+      ],
+      "application": {
+        "case_id": "EXP-0010",
+        "hire_date": "2026-10-01",
+        "full_name": "Ana Sofía Silva Castro",
+        "rfc": "SICA760510NVN",
+        "curp": "SICA760510MNLLSN45",
+        "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0010\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Ana Sofía Silva Castro\nFecha de nacimiento: 1976-05-10\nSexo: M\nCURP: SICA760510MNLLSN45\nRFC: SICA760510NVN\nDomicilio: Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000\nClave de elector ficticia: SYNXJSL65AHEKCZK5J\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0010\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Ana Sofía Silva Castro\nRFC: SICA760510NVN\nCURP: SICA760510MNLLSN45\nCodigo postal fiscal: 64000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0010\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Agua Serena Servicios SA de CV\nFecha de emision: 2026-10-06\nCuenta de servicio: SYN-143860\nNombre: Ana Sofía Silva Castro\nCalle: Calle Gardenia 45\nColonia: El Mirador\nCiudad: Monterrey\nEstado: Nuevo León\nCodigo postal: 64000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0010\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Ana Sofía Silva Castro\nRFC: SICA760510NVN\nCURP: SICA760510MNLLSN45\nPuesto: Coordinacion de operaciones\nCliente de asignacion: Taller Sol y Luna SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on SICA760510NVN."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on SICA760510MNLLSN45."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address issued 2026-10-06 is after the hire date 2026-10-01."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Ana Sofía Silva Castro",
+            "rfc": "SICA760510NVN",
+            "curp": "SICA760510MNLLSN45",
+            "birth_date": "1976-05-10",
+            "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Ana Sofía Silva Castro",
+            "rfc": "SICA760510NVN",
+            "curp": "SICA760510MNLLSN45",
+            "postal_code": "64000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Ana Sofía Silva Castro",
+            "street": "Calle Gardenia 45",
+            "neighborhood": "El Mirador",
+            "city": "Monterrey",
+            "state": "Nuevo León",
+            "postal_code": "64000",
+            "issue_date": "2026-10-06",
+            "issuer": "Agua Serena Servicios SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Ana Sofía Silva Castro",
+            "rfc": "SICA760510NVN",
+            "curp": "SICA760510MNLLSN45",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Coordinacion de operaciones",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0011",
+      "defects": [
+        "name_mismatch",
+        "rfc_mismatch"
+      ],
+      "notes": [
+        "The comprobante_domicilio name belongs to a different synthetic person.",
+        "The constancia_fiscal RFC differs by one character."
+      ],
+      "application": {
+        "case_id": "EXP-0011",
+        "hire_date": "2026-10-01",
+        "full_name": "Renata Díaz Salazar",
+        "rfc": "DISR970112NPG",
+        "curp": "DISR970112MPLZLN54",
+        "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0011\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Renata Díaz Salazar\nNacimiento: 1997-01-12\nSexo: M\nClave CURP: DISR970112-MPLZLN54\nR.F.C.: DISR970112-NPG\nDomicilio: Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000\nClave de elector ficticia: SYNMX4RTLG2C8QN7YV\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0011\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Renata Díaz Salazar\nR.F.C.: DISR970112-NBG\nClave CURP: DISR970112-MPLZLN54\nC.P. fiscal: 72000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0011\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Red Fibra Inventada SA de CV\nFecha de emision: 2026-09-11\nCuenta de servicio: SYN-960394\nCliente: Paula Salazar Vázquez\nCalle: Privada Cedro 12\nColonia: Los Encinos\nCiudad: Puebla\nEstado: Puebla\nCodigo postal: 72000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0011\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Renata Díaz Salazar\nR.F.C.: DISR970112-NPG\nClave CURP: DISR970112-MPLZLN54\nPuesto ofrecido: Especialista de capacitacion\nCliente de asignacion: Editorial Rio Lento SA de CV\nFecha de ingreso: 2026-10-01\nFecha de firma: 2026-09-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": false,
+            "reason": "Name mismatch against hire record 'Renata Díaz Salazar': comprobante_domicilio 'Paula Salazar Vázquez'."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": false,
+            "reason": "RFC mismatch: hire_record DISR970112NPG, identificacion DISR970112NPG, constancia_fiscal DISR970112NBG, contrato DISR970112NPG."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on DISR970112MPLZLN54."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Renata Díaz Salazar",
+            "rfc": "DISR970112NPG",
+            "curp": "DISR970112MPLZLN54",
+            "birth_date": "1997-01-12",
+            "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Renata Díaz Salazar",
+            "rfc": "DISR970112NBG",
+            "curp": "DISR970112MPLZLN54",
+            "postal_code": "72000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Paula Salazar Vázquez",
+            "street": "Privada Cedro 12",
+            "neighborhood": "Los Encinos",
+            "city": "Puebla",
+            "state": "Puebla",
+            "postal_code": "72000",
+            "issue_date": "2026-09-11",
+            "issuer": "Red Fibra Inventada SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Renata Díaz Salazar",
+            "rfc": "DISR970112NPG",
+            "curp": "DISR970112MPLZLN54",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Especialista de capacitacion",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0012",
+      "defects": [
+        "stale_address",
+        "contract_start"
+      ],
+      "notes": [
+        "Proof of address is 181 days old.",
+        "The contract start date falls outside the allowed gap."
+      ],
+      "application": {
+        "case_id": "EXP-0012",
+        "hire_date": "2026-10-01",
+        "full_name": "Valeria Sánchez Pérez",
+        "rfc": "SAPV930413VRE",
+        "curp": "SAPV930413MQTNRL42",
+        "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0012\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Valeria Sánchez Pérez\nNacimiento: 1993-04-13\nSexo: M\nClave CURP: SAPV930413-MQTNRL42\nR.F.C.: SAPV930413-VRE\nDomicilio: Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000\nClave de elector ficticia: SYNSMSCG5YW5H2NSC5\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0012\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Valeria Sánchez Pérez\nR.F.C.: SAPV930413-VRE\nClave CURP: SAPV930413-MQTNRL42\nC.P. fiscal: 76000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0012\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Gas de la Colina Ficticia SA de CV\nFecha de emision: 2026-04-03\nCuenta de servicio: SYN-101773\nCliente: Valeria Sánchez Pérez\nCalle: Blvd. Las Dunas 900\nColonia: San Isidro\nCiudad: Querétaro\nEstado: Querétaro\nCodigo postal: 76000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0012\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Valeria Sánchez Pérez\nR.F.C.: SAPV930413-VRE\nClave CURP: SAPV930413-MQTNRL42\nPuesto ofrecido: Auxiliar administrativo\nCliente de asignacion: Logistica Bruma del Sur SA de CV\nFecha de ingreso: 2026-10-31\nFecha de firma: 2026-10-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on SAPV930413VRE."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on SAPV930413MQTNRL42."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address issued 2026-04-03 is 181 days before 2026-10-01 (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract start 2026-10-31 vs agreed start 2026-10-01 (30 days > limit 7)."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Valeria Sánchez Pérez",
+            "rfc": "SAPV930413VRE",
+            "curp": "SAPV930413MQTNRL42",
+            "birth_date": "1993-04-13",
+            "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Valeria Sánchez Pérez",
+            "rfc": "SAPV930413VRE",
+            "curp": "SAPV930413MQTNRL42",
+            "postal_code": "76000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Valeria Sánchez Pérez",
+            "street": "Blvd. Las Dunas 900",
+            "neighborhood": "San Isidro",
+            "city": "Querétaro",
+            "state": "Querétaro",
+            "postal_code": "76000",
+            "issue_date": "2026-04-03",
+            "issuer": "Gas de la Colina Ficticia SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Valeria Sánchez Pérez",
+            "rfc": "SAPV930413VRE",
+            "curp": "SAPV930413MQTNRL42",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Auxiliar administrativo",
+            "signed_date": "2026-10-28",
+            "start_date": "2026-10-31",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0013",
+      "defects": [],
+      "notes": [
+        "The identification summary prints surnames first. This is not a defect."
+      ],
+      "application": {
+        "case_id": "EXP-0013",
+        "hire_date": "2026-10-01",
+        "full_name": "Ricardo Cortés Guerrero",
+        "rfc": "COGR891124MX1",
+        "curp": "COGR891124HYNRRC11",
+        "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0013\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: CORTÉS GUERRERO, RICARDO\nFecha de nacimiento: 1989-11-24\nSexo: H\nCURP: COGR891124HYNRRC11\nRFC: COGR891124MX1\nDomicilio: Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000\nClave de elector ficticia: SYNW3UJN42MV3AVUP5\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0013\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Ricardo Cortés Guerrero\nRFC: COGR891124MX1\nCURP: COGR891124HYNRRC11\nCodigo postal fiscal: 97000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0013\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Luz del Valle Suministros SA de CV\nFecha de emision: 2026-08-22\nCuenta de servicio: SYN-923927\nNombre: Ricardo Cortés Guerrero\nCalle: Callejón del Arte 7\nColonia: La Paz\nCiudad: Mérida\nEstado: Yucatán\nCodigo postal: 97000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0013\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Ricardo Cortés Guerrero\nRFC: COGR891124MX1\nCURP: COGR891124HYNRRC11\nPuesto: Enlace operativo\nCliente de asignacion: Consultora Horizonte Ficticio SC\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": true,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on COGR891124MX1."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on COGR891124HYNRRC11."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "CORTÉS GUERRERO, RICARDO",
+            "rfc": "COGR891124MX1",
+            "curp": "COGR891124HYNRRC11",
+            "birth_date": "1989-11-24",
+            "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Ricardo Cortés Guerrero",
+            "rfc": "COGR891124MX1",
+            "curp": "COGR891124HYNRRC11",
+            "postal_code": "97000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Ricardo Cortés Guerrero",
+            "street": "Callejón del Arte 7",
+            "neighborhood": "La Paz",
+            "city": "Mérida",
+            "state": "Yucatán",
+            "postal_code": "97000",
+            "issue_date": "2026-08-22",
+            "issuer": "Luz del Valle Suministros SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Ricardo Cortés Guerrero",
+            "rfc": "COGR891124MX1",
+            "curp": "COGR891124HYNRRC11",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Enlace operativo",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0014",
+      "defects": [],
+      "notes": [
+        "The contract omits accents. This is not a defect.",
+        "Proof of address is exactly 90 days old and should pass."
+      ],
+      "application": {
+        "case_id": "EXP-0014",
+        "hire_date": "2026-10-01",
+        "full_name": "Héctor Núñez Domínguez",
+        "rfc": "NUDH8208152N6",
+        "curp": "NUDH820815HGTNMC79",
+        "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0014\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Héctor Núñez Domínguez\nFecha de nacimiento: 1982-08-15\nSexo: H\nCURP: NUDH820815HGTNMC79\nRFC: NUDH8208152N6\nDomicilio: Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000\nClave de elector ficticia: SYNQNKBCR8E74N293R\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0014\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Héctor Núñez Domínguez\nRFC: NUDH8208152N6\nCURP: NUDH820815HGTNMC79\nCodigo postal fiscal: 37000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0014\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Agua Serena Servicios SA de CV\nFecha de emision: 2026-07-03\nCuenta de servicio: SYN-254739\nNombre: Héctor Núñez Domínguez\nCalle: Av. del Mezquite 250 Int. 2\nColonia: Reforma\nCiudad: León\nEstado: Guanajuato\nCodigo postal: 37000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0014\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Hector Nunez Dominguez\nRFC: NUDH8208152N6\nCURP: NUDH820815HGTNMC79\nPuesto: Supervisor de sucursal\nCliente de asignacion: Panaderia La Espiga Inventada SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": true,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on NUDH8208152N6."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on NUDH820815HGTNMC79."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Héctor Núñez Domínguez",
+            "rfc": "NUDH8208152N6",
+            "curp": "NUDH820815HGTNMC79",
+            "birth_date": "1982-08-15",
+            "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Héctor Núñez Domínguez",
+            "rfc": "NUDH8208152N6",
+            "curp": "NUDH820815HGTNMC79",
+            "postal_code": "37000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Héctor Núñez Domínguez",
+            "street": "Av. del Mezquite 250 Int. 2",
+            "neighborhood": "Reforma",
+            "city": "León",
+            "state": "Guanajuato",
+            "postal_code": "37000",
+            "issue_date": "2026-07-03",
+            "issuer": "Agua Serena Servicios SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Hector Nunez Dominguez",
+            "rfc": "NUDH8208152N6",
+            "curp": "NUDH820815HGTNMC79",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Supervisor de sucursal",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0015",
+      "defects": [],
+      "notes": [
+        "The contract start is exactly at the allowed gap and should pass."
+      ],
+      "application": {
+        "case_id": "EXP-0015",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Salazar Mendoza",
+        "rfc": "SAMM9602251OL",
+        "curp": "SAMM960225MMCLNR87",
+        "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0015\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: María Fernanda Salazar Mendoza\nNacimiento: 1996-02-25\nSexo: M\nClave CURP: SAMM960225-MMCLNR87\nR.F.C.: SAMM960225-1OL\nDomicilio: Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000\nClave de elector ficticia: SYNW656L86SRT9RT6E\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0015\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: María Fernanda Salazar Mendoza\nR.F.C.: SAMM960225-1OL\nClave CURP: SAMM960225-MMCLNR87\nC.P. fiscal: 50000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0015\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Red Fibra Inventada SA de CV\nFecha de emision: 2026-08-02\nCuenta de servicio: SYN-848206\nCliente: María Fernanda Salazar Mendoza\nCalle: Calle Magnolia 33\nColonia: Las Flores\nCiudad: Toluca\nEstado: Estado de México\nCodigo postal: 50000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0015\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: María Fernanda Salazar Mendoza\nR.F.C.: SAMM960225-1OL\nClave CURP: SAMM960225-MMCLNR87\nPuesto ofrecido: Asistente de seleccion\nCliente de asignacion: Estudios Marea Baja SC\nFecha de ingreso: 2026-10-08\nFecha de firma: 2026-10-05\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": true,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on SAMM9602251OL."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on SAMM960225MMCLNR87."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-02 is 60 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-08 vs agreed start 2026-10-01 (7 days <= limit 7); contract signed 2026-10-05 is on or before the start date 2026-10-08."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "María Fernanda Salazar Mendoza",
+            "rfc": "SAMM9602251OL",
+            "curp": "SAMM960225MMCLNR87",
+            "birth_date": "1996-02-25",
+            "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "María Fernanda Salazar Mendoza",
+            "rfc": "SAMM9602251OL",
+            "curp": "SAMM960225MMCLNR87",
+            "postal_code": "50000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "María Fernanda Salazar Mendoza",
+            "street": "Calle Magnolia 33",
+            "neighborhood": "Las Flores",
+            "city": "Toluca",
+            "state": "Estado de México",
+            "postal_code": "50000",
+            "issue_date": "2026-08-02",
+            "issuer": "Red Fibra Inventada SA de CV"
+          },
+          "contrato": {
+            "employee_name": "María Fernanda Salazar Mendoza",
+            "rfc": "SAMM9602251OL",
+            "curp": "SAMM960225MMCLNR87",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Asistente de seleccion",
+            "signed_date": "2026-10-05",
+            "start_date": "2026-10-08",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0016",
+      "defects": [
+        "name_mismatch"
+      ],
+      "notes": [
+        "The identificacion name belongs to a different synthetic person."
+      ],
+      "application": {
+        "case_id": "EXP-0016",
+        "hire_date": "2026-10-01",
+        "full_name": "Renata Sánchez Torres",
+        "rfc": "SATR820618FIJ",
+        "curp": "SATR820618MOCNRN39",
+        "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0016\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Alejandro Rojas López\nNacimiento: 1982-06-18\nSexo: M\nClave CURP: SATR820618-MOCNRN39\nR.F.C.: SATR820618-FIJ\nDomicilio: Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000\nClave de elector ficticia: SYN74DP42B28AYV24Q\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0016\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Renata Sánchez Torres\nR.F.C.: SATR820618-FIJ\nClave CURP: SATR820618-MOCNRN39\nC.P. fiscal: 68000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0016\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Gas de la Colina Ficticia SA de CV\nFecha de emision: 2026-09-11\nCuenta de servicio: SYN-611945\nCliente: Renata Sánchez Torres\nCalle: Cerrada Bugambilia 18\nColonia: Americana\nCiudad: Oaxaca de Juárez\nEstado: Oaxaca\nCodigo postal: 68000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0016\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Renata Sánchez Torres\nR.F.C.: SATR820618-FIJ\nClave CURP: SATR820618-MOCNRN39\nPuesto ofrecido: Generalista de personal\nCliente de asignacion: Transportes Cerro Azul SA de CV\nFecha de ingreso: 2026-10-01\nFecha de firma: 2026-09-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": false,
+            "reason": "Name mismatch against hire record 'Renata Sánchez Torres': identificacion 'Alejandro Rojas López'."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on SATR820618FIJ."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on SATR820618MOCNRN39."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Alejandro Rojas López",
+            "rfc": "SATR820618FIJ",
+            "curp": "SATR820618MOCNRN39",
+            "birth_date": "1982-06-18",
+            "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Renata Sánchez Torres",
+            "rfc": "SATR820618FIJ",
+            "curp": "SATR820618MOCNRN39",
+            "postal_code": "68000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Renata Sánchez Torres",
+            "street": "Cerrada Bugambilia 18",
+            "neighborhood": "Americana",
+            "city": "Oaxaca de Juárez",
+            "state": "Oaxaca",
+            "postal_code": "68000",
+            "issue_date": "2026-09-11",
+            "issuer": "Gas de la Colina Ficticia SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Renata Sánchez Torres",
+            "rfc": "SATR820618FIJ",
+            "curp": "SATR820618MOCNRN39",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Generalista de personal",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0017",
+      "defects": [
+        "rfc_mismatch"
+      ],
+      "notes": [
+        "The constancia_fiscal RFC differs by one character."
+      ],
+      "application": {
+        "case_id": "EXP-0017",
+        "hire_date": "2026-10-01",
+        "full_name": "Valeria Torres Morales",
+        "rfc": "TOMV870113VZK",
+        "curp": "TOMV870113MJCRRL77",
+        "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0017\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Valeria Torres Morales\nFecha de nacimiento: 1987-01-13\nSexo: M\nCURP: TOMV870113MJCRRL77\nRFC: TOMV870113VZK\nDomicilio: Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100\nClave de elector ficticia: SYNDS2WP7WX2T4SF8B\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0017\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Valeria Torres Morales\nRFC: TOMV870113VLK\nCURP: TOMV870113MJCRRL77\nCodigo postal fiscal: 44100\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0017\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Luz del Valle Suministros SA de CV\nFecha de emision: 2026-09-01\nCuenta de servicio: SYN-885408\nNombre: Valeria Torres Morales\nCalle: Av. Palma 128\nColonia: Centro\nCiudad: Guadalajara\nEstado: Jalisco\nCodigo postal: 44100\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0017\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Valeria Torres Morales\nRFC: TOMV870113VZK\nCURP: TOMV870113MJCRRL77\nPuesto: Analista de reclutamiento\nCliente de asignacion: Nube Clara SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": false,
+            "reason": "RFC mismatch: hire_record TOMV870113VZK, identificacion TOMV870113VZK, constancia_fiscal TOMV870113VLK, contrato TOMV870113VZK."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on TOMV870113MJCRRL77."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-09-01 is 30 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Valeria Torres Morales",
+            "rfc": "TOMV870113VZK",
+            "curp": "TOMV870113MJCRRL77",
+            "birth_date": "1987-01-13",
+            "address": "Av. Palma 128, Centro, Guadalajara, Jalisco, C.P. 44100",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Valeria Torres Morales",
+            "rfc": "TOMV870113VLK",
+            "curp": "TOMV870113MJCRRL77",
+            "postal_code": "44100",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Valeria Torres Morales",
+            "street": "Av. Palma 128",
+            "neighborhood": "Centro",
+            "city": "Guadalajara",
+            "state": "Jalisco",
+            "postal_code": "44100",
+            "issue_date": "2026-09-01",
+            "issuer": "Luz del Valle Suministros SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Valeria Torres Morales",
+            "rfc": "TOMV870113VZK",
+            "curp": "TOMV870113MJCRRL77",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Analista de reclutamiento",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0018",
+      "defects": [
+        "curp_mismatch"
+      ],
+      "notes": [
+        "The constancia_fiscal CURP differs by one character."
+      ],
+      "application": {
+        "case_id": "EXP-0018",
+        "hire_date": "2026-10-01",
+        "full_name": "Paula García Díaz",
+        "rfc": "GADP791103CBP",
+        "curp": "GADP791103MNLRZL33",
+        "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0018\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Paula García Díaz\nFecha de nacimiento: 1979-11-03\nSexo: M\nCURP: GADP791103MNLRZL33\nRFC: GADP791103CBP\nDomicilio: Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000\nClave de elector ficticia: SYNHLVGBV23NERGVHC\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0018\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Paula García Díaz\nRFC: GADP791103CBP\nCURP: GADP791103MNLRZLK3\nCodigo postal fiscal: 64000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0018\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Agua Serena Servicios SA de CV\nFecha de emision: 2026-08-22\nCuenta de servicio: SYN-464069\nNombre: Paula García Díaz\nCalle: Calle Gardenia 45\nColonia: El Mirador\nCiudad: Monterrey\nEstado: Nuevo León\nCodigo postal: 64000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0018\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Paula García Díaz\nRFC: GADP791103CBP\nCURP: GADP791103MNLRZL33\nPuesto: Coordinacion de operaciones\nCliente de asignacion: Taller Sol y Luna SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on GADP791103CBP."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": false,
+            "reason": "CURP mismatch: hire_record GADP791103MNLRZL33, identificacion GADP791103MNLRZL33, constancia_fiscal GADP791103MNLRZLK3, contrato GADP791103MNLRZL33."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Paula García Díaz",
+            "rfc": "GADP791103CBP",
+            "curp": "GADP791103MNLRZL33",
+            "birth_date": "1979-11-03",
+            "address": "Calle Gardenia 45, El Mirador, Monterrey, Nuevo León, C.P. 64000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Paula García Díaz",
+            "rfc": "GADP791103CBP",
+            "curp": "GADP791103MNLRZLK3",
+            "postal_code": "64000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Paula García Díaz",
+            "street": "Calle Gardenia 45",
+            "neighborhood": "El Mirador",
+            "city": "Monterrey",
+            "state": "Nuevo León",
+            "postal_code": "64000",
+            "issue_date": "2026-08-22",
+            "issuer": "Agua Serena Servicios SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Paula García Díaz",
+            "rfc": "GADP791103CBP",
+            "curp": "GADP791103MNLRZL33",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Coordinacion de operaciones",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0019",
+      "defects": [
+        "stale_address"
+      ],
+      "notes": [
+        "Proof of address is 151 days old."
+      ],
+      "application": {
+        "case_id": "EXP-0019",
+        "hire_date": "2026-10-01",
+        "full_name": "Paula Morales Vega",
+        "rfc": "MOVP830217VA0",
+        "curp": "MOVP830217MPLRGL78",
+        "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0019\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Paula Morales Vega\nNacimiento: 1983-02-17\nSexo: M\nClave CURP: MOVP830217-MPLRGL78\nR.F.C.: MOVP830217-VA0\nDomicilio: Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000\nClave de elector ficticia: SYNT875TWRFT6R72XB\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0019\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Paula Morales Vega\nR.F.C.: MOVP830217-VA0\nClave CURP: MOVP830217-MPLRGL78\nC.P. fiscal: 72000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0019\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Red Fibra Inventada SA de CV\nFecha de emision: 2026-05-03\nCuenta de servicio: SYN-618317\nCliente: Paula Morales Vega\nCalle: Privada Cedro 12\nColonia: Los Encinos\nCiudad: Puebla\nEstado: Puebla\nCodigo postal: 72000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0019\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Paula Morales Vega\nR.F.C.: MOVP830217-VA0\nClave CURP: MOVP830217-MPLRGL78\nPuesto ofrecido: Especialista de capacitacion\nCliente de asignacion: Editorial Rio Lento SA de CV\nFecha de ingreso: 2026-10-01\nFecha de firma: 2026-09-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on MOVP830217VA0."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on MOVP830217MPLRGL78."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address issued 2026-05-03 is 151 days before 2026-10-01 (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Paula Morales Vega",
+            "rfc": "MOVP830217VA0",
+            "curp": "MOVP830217MPLRGL78",
+            "birth_date": "1983-02-17",
+            "address": "Privada Cedro 12, Los Encinos, Puebla, Puebla, C.P. 72000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Paula Morales Vega",
+            "rfc": "MOVP830217VA0",
+            "curp": "MOVP830217MPLRGL78",
+            "postal_code": "72000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Paula Morales Vega",
+            "street": "Privada Cedro 12",
+            "neighborhood": "Los Encinos",
+            "city": "Puebla",
+            "state": "Puebla",
+            "postal_code": "72000",
+            "issue_date": "2026-05-03",
+            "issuer": "Red Fibra Inventada SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Paula Morales Vega",
+            "rfc": "MOVP830217VA0",
+            "curp": "MOVP830217MPLRGL78",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Especialista de capacitacion",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0020",
+      "defects": [
+        "contract_start"
+      ],
+      "notes": [
+        "The contract start date falls outside the allowed gap."
+      ],
+      "application": {
+        "case_id": "EXP-0020",
+        "hire_date": "2026-10-01",
+        "full_name": "Fernando González Ortiz",
+        "rfc": "GOOF780626QVR",
+        "curp": "GOOF780626HQTNRR92",
+        "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0020\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Fernando González Ortiz\nNacimiento: 1978-06-26\nSexo: H\nClave CURP: GOOF780626-HQTNRR92\nR.F.C.: GOOF780626-QVR\nDomicilio: Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000\nClave de elector ficticia: SYNR896BFUQ3RVZ8Y5\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0020\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Fernando González Ortiz\nR.F.C.: GOOF780626-QVR\nClave CURP: GOOF780626-HQTNRR92\nC.P. fiscal: 76000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0020\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Gas de la Colina Ficticia SA de CV\nFecha de emision: 2026-08-02\nCuenta de servicio: SYN-882169\nCliente: Fernando González Ortiz\nCalle: Blvd. Las Dunas 900\nColonia: San Isidro\nCiudad: Querétaro\nEstado: Querétaro\nCodigo postal: 76000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0020\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Fernando González Ortiz\nR.F.C.: GOOF780626-QVR\nClave CURP: GOOF780626-HQTNRR92\nPuesto ofrecido: Auxiliar administrativo\nCliente de asignacion: Logistica Bruma del Sur SA de CV\nFecha de ingreso: 2026-10-31\nFecha de firma: 2026-10-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on GOOF780626QVR."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on GOOF780626HQTNRR92."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-02 is 60 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract start 2026-10-31 vs agreed start 2026-10-01 (30 days > limit 7)."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Fernando González Ortiz",
+            "rfc": "GOOF780626QVR",
+            "curp": "GOOF780626HQTNRR92",
+            "birth_date": "1978-06-26",
+            "address": "Blvd. Las Dunas 900, San Isidro, Querétaro, Querétaro, C.P. 76000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Fernando González Ortiz",
+            "rfc": "GOOF780626QVR",
+            "curp": "GOOF780626HQTNRR92",
+            "postal_code": "76000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Fernando González Ortiz",
+            "street": "Blvd. Las Dunas 900",
+            "neighborhood": "San Isidro",
+            "city": "Querétaro",
+            "state": "Querétaro",
+            "postal_code": "76000",
+            "issue_date": "2026-08-02",
+            "issuer": "Gas de la Colina Ficticia SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Fernando González Ortiz",
+            "rfc": "GOOF780626QVR",
+            "curp": "GOOF780626HQTNRR92",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Auxiliar administrativo",
+            "signed_date": "2026-10-28",
+            "start_date": "2026-10-31",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0021",
+      "defects": [
+        "missing_signature"
+      ],
+      "notes": [
+        "The contract omits the signature date, so the expediente is incomplete."
+      ],
+      "application": {
+        "case_id": "EXP-0021",
+        "hire_date": "2026-10-01",
+        "full_name": "Paula Gómez Díaz",
+        "rfc": "GODP940809TQO",
+        "curp": "GODP940809MYNMZL12",
+        "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0021\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Paula Gómez Díaz\nFecha de nacimiento: 1994-08-09\nSexo: M\nCURP: GODP940809MYNMZL12\nRFC: GODP940809TQO\nDomicilio: Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000\nClave de elector ficticia: SYNTUGNUQZMVAJTCDU\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0021\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Paula Gómez Díaz\nRFC: GODP940809TQO\nCURP: GODP940809MYNMZL12\nCodigo postal fiscal: 97000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0021\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Luz del Valle Suministros SA de CV\nFecha de emision: 2026-09-11\nCuenta de servicio: SYN-831295\nNombre: Paula Gómez Díaz\nCalle: Callejón del Arte 7\nColonia: La Paz\nCiudad: Mérida\nEstado: Yucatán\nCodigo postal: 97000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0021\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Paula Gómez Díaz\nRFC: GODP940809TQO\nCURP: GODP940809MYNMZL12\nPuesto: Enlace operativo\nCliente de asignacion: Consultora Horizonte Ficticio SC\nFecha de inicio: 2026-10-01\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on GODP940809TQO."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on GODP940809MYNMZL12."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-09-11 is 20 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract signature date is missing."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Paula Gómez Díaz",
+            "rfc": "GODP940809TQO",
+            "curp": "GODP940809MYNMZL12",
+            "birth_date": "1994-08-09",
+            "address": "Callejón del Arte 7, La Paz, Mérida, Yucatán, C.P. 97000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Paula Gómez Díaz",
+            "rfc": "GODP940809TQO",
+            "curp": "GODP940809MYNMZL12",
+            "postal_code": "97000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Paula Gómez Díaz",
+            "street": "Callejón del Arte 7",
+            "neighborhood": "La Paz",
+            "city": "Mérida",
+            "state": "Yucatán",
+            "postal_code": "97000",
+            "issue_date": "2026-09-11",
+            "issuer": "Luz del Valle Suministros SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Paula Gómez Díaz",
+            "rfc": "GODP940809TQO",
+            "curp": "GODP940809MYNMZL12",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Enlace operativo",
+            "signed_date": null,
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0022",
+      "defects": [
+        "future_address"
+      ],
+      "notes": [
+        "Proof of address is dated after the hire date."
+      ],
+      "application": {
+        "case_id": "EXP-0022",
+        "hire_date": "2026-10-01",
+        "full_name": "Diego Domínguez Vázquez",
+        "rfc": "DOVD960804AS4",
+        "curp": "DOVD960804HGTMZG76",
+        "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0022\n\nRESUMEN DE IDENTIFICACION\nEste resumen es ficticio. No es una credencial oficial.\nNo contiene fotografia, codigo de barras ni zona MRZ.\nNombre completo: Diego Domínguez Vázquez\nFecha de nacimiento: 1996-08-04\nSexo: H\nCURP: DOVD960804HGTMZG76\nRFC: DOVD960804AS4\nDomicilio: Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000\nClave de elector ficticia: SYN9EDKKVFRH4Q266V\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0022\n\nCONSTANCIA DE SITUACION FISCAL\nDocumento ficticio. No fue emitido por una autoridad.\nNombre: Diego Domínguez Vázquez\nRFC: DOVD960804AS4\nCURP: DOVD960804HGTMZG76\nCodigo postal fiscal: 37000\nFecha de emision: 2026-09-10\nEstatus: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0022\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Agua Serena Servicios SA de CV\nFecha de emision: 2026-10-06\nCuenta de servicio: SYN-717113\nNombre: Diego Domínguez Vázquez\nCalle: Av. del Mezquite 250 Int. 2\nColonia: Reforma\nCiudad: León\nEstado: Guanajuato\nCodigo postal: 37000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0022\n\nCONTRATO LABORAL\nEmpleador: Talento Bajio SA de CV\nTrabajador: Diego Domínguez Vázquez\nRFC: DOVD960804AS4\nCURP: DOVD960804HGTMZG76\nPuesto: Supervisor de sucursal\nCliente de asignacion: Panaderia La Espiga Inventada SA de CV\nFecha de inicio: 2026-10-01\nFecha de firma: 2026-09-28\nTipo: Tiempo indeterminado\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on DOVD960804AS4."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on DOVD960804HGTMZG76."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address issued 2026-10-06 is after the hire date 2026-10-01."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Diego Domínguez Vázquez",
+            "rfc": "DOVD960804AS4",
+            "curp": "DOVD960804HGTMZG76",
+            "birth_date": "1996-08-04",
+            "address": "Av. del Mezquite 250 Int. 2, Reforma, León, Guanajuato, C.P. 37000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Diego Domínguez Vázquez",
+            "rfc": "DOVD960804AS4",
+            "curp": "DOVD960804HGTMZG76",
+            "postal_code": "37000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Diego Domínguez Vázquez",
+            "street": "Av. del Mezquite 250 Int. 2",
+            "neighborhood": "Reforma",
+            "city": "León",
+            "state": "Guanajuato",
+            "postal_code": "37000",
+            "issue_date": "2026-10-06",
+            "issuer": "Agua Serena Servicios SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Diego Domínguez Vázquez",
+            "rfc": "DOVD960804AS4",
+            "curp": "DOVD960804HGTMZG76",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Supervisor de sucursal",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Tiempo indeterminado"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0023",
+      "defects": [
+        "name_mismatch",
+        "rfc_mismatch"
+      ],
+      "notes": [
+        "The comprobante_domicilio name belongs to a different synthetic person.",
+        "The constancia_fiscal RFC differs by one character."
+      ],
+      "application": {
+        "case_id": "EXP-0023",
+        "hire_date": "2026-10-01",
+        "full_name": "Daniela Rivera Romero",
+        "rfc": "RIRD910120GNN",
+        "curp": "RIRD910120MMCVMN40",
+        "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0023\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Daniela Rivera Romero\nNacimiento: 1991-01-20\nSexo: M\nClave CURP: RIRD910120-MMCVMN40\nR.F.C.: RIRD910120-GNN\nDomicilio: Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000\nClave de elector ficticia: SYNUCQUU7EQSN5HQKT\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0023\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Daniela Rivera Romero\nR.F.C.: RIRD910120-5NN\nClave CURP: RIRD910120-MMCVMN40\nC.P. fiscal: 50000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0023\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Red Fibra Inventada SA de CV\nFecha de emision: 2026-08-22\nCuenta de servicio: SYN-966785\nCliente: José Luis González Sánchez\nCalle: Calle Magnolia 33\nColonia: Las Flores\nCiudad: Toluca\nEstado: Estado de México\nCodigo postal: 50000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0023\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Daniela Rivera Romero\nR.F.C.: RIRD910120-GNN\nClave CURP: RIRD910120-MMCVMN40\nPuesto ofrecido: Asistente de seleccion\nCliente de asignacion: Estudios Marea Baja SC\nFecha de ingreso: 2026-10-01\nFecha de firma: 2026-09-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": false,
+            "reason": "Name mismatch against hire record 'Daniela Rivera Romero': comprobante_domicilio 'José Luis González Sánchez'."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": false,
+            "reason": "RFC mismatch: hire_record RIRD910120GNN, identificacion RIRD910120GNN, constancia_fiscal RIRD9101205NN, contrato RIRD910120GNN."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on RIRD910120MMCVMN40."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": true,
+            "reason": "Proof of address issued 2026-08-22 is 40 days before the hire date (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": true,
+            "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Daniela Rivera Romero",
+            "rfc": "RIRD910120GNN",
+            "curp": "RIRD910120MMCVMN40",
+            "birth_date": "1991-01-20",
+            "address": "Calle Magnolia 33, Las Flores, Toluca, Estado de México, C.P. 50000",
+            "sex": "M"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Daniela Rivera Romero",
+            "rfc": "RIRD9101205NN",
+            "curp": "RIRD910120MMCVMN40",
+            "postal_code": "50000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "José Luis González Sánchez",
+            "street": "Calle Magnolia 33",
+            "neighborhood": "Las Flores",
+            "city": "Toluca",
+            "state": "Estado de México",
+            "postal_code": "50000",
+            "issue_date": "2026-08-22",
+            "issuer": "Red Fibra Inventada SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Daniela Rivera Romero",
+            "rfc": "RIRD910120GNN",
+            "curp": "RIRD910120MMCVMN40",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Asistente de seleccion",
+            "signed_date": "2026-09-28",
+            "start_date": "2026-10-01",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "EXP-0024",
+      "defects": [
+        "stale_address",
+        "contract_start"
+      ],
+      "notes": [
+        "Proof of address is 181 days old.",
+        "The contract start date falls outside the allowed gap."
+      ],
+      "application": {
+        "case_id": "EXP-0024",
+        "hire_date": "2026-10-01",
+        "full_name": "Diego Hernández García",
+        "rfc": "HEGD770520S2H",
+        "curp": "HEGD770520HOCRRG77",
+        "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0024\n\nCONSTANCIA DE IDENTIFICACION\nDocumento ficticio con los datos de una identificacion. No es un INE.\nNombre: Diego Hernández García\nNacimiento: 1977-05-20\nSexo: H\nClave CURP: HEGD770520-HOCRRG77\nR.F.C.: HEGD770520-S2H\nDomicilio: Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000\nClave de elector ficticia: SYNC5WSBFQBTCM86TM\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "constancia_fiscal": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0024\n\nCONSTANCIA DE SITUACION FISCAL\nCopia ficticia para un expediente de alta. Sin validez oficial.\nContribuyente: Diego Hernández García\nR.F.C.: HEGD770520-S2H\nClave CURP: HEGD770520-HOCRRG77\nC.P. fiscal: 68000\nEmitida: 2026-09-10\nSituacion: Activo\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "comprobante_domicilio": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0024\n\nCOMPROBANTE DE DOMICILIO\nEmisor: Gas de la Colina Ficticia SA de CV\nFecha de emision: 2026-04-03\nCuenta de servicio: SYN-713762\nCliente: Diego Hernández García\nCalle: Cerrada Bugambilia 18\nColonia: Americana\nCiudad: Oaxaca de Juárez\nEstado: Oaxaca\nCodigo postal: 68000\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n",
+        "contrato": "DOCUMENTO FICTICIO - SIN VALIDEZ OFICIAL\nSYNTHETIC FIXTURE - NOT A REAL DOCUMENT\nTalento Bajio SA de CV - expediente de alta de personal\nFolio de demostracion: EXP-0024\n\nCARTA OFERTA\nEmpresa: Talento Bajio SA de CV\nCandidato: Diego Hernández García\nR.F.C.: HEGD770520-S2H\nClave CURP: HEGD770520-HOCRRG77\nPuesto ofrecido: Generalista de personal\nCliente de asignacion: Transportes Cerro Azul SA de CV\nFecha de ingreso: 2026-10-31\nFecha de firma: 2026-10-28\nDocumento: Carta oferta\n\nGenerado por docval como expediente sintetico.\nDocumento ficticio. No es un archivo real de un trabajador.\n"
+      },
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": true,
+            "reason": "Names agree across the hire record and all four documents."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": true,
+            "reason": "RFC agrees on HEGD770520S2H."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": true,
+            "reason": "CURP agrees on HEGD770520HOCRRG77."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address issued 2026-04-03 is 181 days before 2026-10-01 (limit 90)."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract start 2026-10-31 vs agreed start 2026-10-01 (30 days > limit 7)."
+          }
+        ],
+        "warnings": [],
+        "extracted": {
+          "identificacion": {
+            "full_name": "Diego Hernández García",
+            "rfc": "HEGD770520S2H",
+            "curp": "HEGD770520HOCRRG77",
+            "birth_date": "1977-05-20",
+            "address": "Cerrada Bugambilia 18, Americana, Oaxaca de Juárez, Oaxaca, C.P. 68000",
+            "sex": "H"
+          },
+          "constancia_fiscal": {
+            "holder_name": "Diego Hernández García",
+            "rfc": "HEGD770520S2H",
+            "curp": "HEGD770520HOCRRG77",
+            "postal_code": "68000",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": {
+            "holder_name": "Diego Hernández García",
+            "street": "Cerrada Bugambilia 18",
+            "neighborhood": "Americana",
+            "city": "Oaxaca de Juárez",
+            "state": "Oaxaca",
+            "postal_code": "68000",
+            "issue_date": "2026-04-03",
+            "issuer": "Gas de la Colina Ficticia SA de CV"
+          },
+          "contrato": {
+            "employee_name": "Diego Hernández García",
+            "rfc": "HEGD770520S2H",
+            "curp": "HEGD770520HOCRRG77",
+            "employer": "Talento Bajio SA de CV",
+            "role": "Generalista de personal",
+            "signed_date": "2026-10-28",
+            "start_date": "2026-10-31",
+            "contract_kind": "Carta oferta"
+          }
+        }
+      }
+    }
+  ],
+  "rule_fixtures": [
+    {
+      "name": "clean",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "name_mismatch",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "Diego Torres Vega",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": false,
+          "reason": "Name mismatch against hire record 'María Fernanda Núñez García': identificacion 'Diego Torres Vega'."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "rfc_mismatch",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA900101ZZ9",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": false,
+          "reason": "RFC mismatch: hire_record NUGA900101AB1, identificacion NUGA900101AB1, constancia_fiscal NUGA900101ZZ9, contrato NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "curp_mismatch",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR00",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": false,
+          "reason": "CURP mismatch: hire_record NUGA900101MJCZNR09, identificacion NUGA900101MJCZNR09, constancia_fiscal NUGA900101MJCZNR00, contrato NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "contract_curp_optional",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": null,
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "contract_curp_checked",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "DIFFERENTCURP00000",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": false,
+          "reason": "CURP mismatch: hire_record NUGA900101MJCZNR09, identificacion NUGA900101MJCZNR09, constancia_fiscal NUGA900101MJCZNR09, contrato DIFFERENTCURP00000."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "address_91_days",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-02",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": false,
+          "reason": "Proof of address issued 2026-07-02 is 91 days before 2026-10-01 (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "address_future",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-10-06",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": false,
+          "reason": "Proof of address issued 2026-10-06 is after the hire date 2026-10-01."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "contract_gap_7",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-10-05",
+          "start_date": "2026-10-08",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-08 vs agreed start 2026-10-01 (7 days <= limit 7); contract signed 2026-10-05 is on or before the start date 2026-10-08."
+        }
+      ]
+    },
+    {
+      "name": "contract_gap_8",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-10-05",
+          "start_date": "2026-10-09",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": false,
+          "reason": "contract start 2026-10-09 vs agreed start 2026-10-01 (8 days > limit 7)."
+        }
+      ]
+    },
+    {
+      "name": "missing_signature",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": null,
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": false,
+          "reason": "contract signature date is missing."
+        }
+      ]
+    },
+    {
+      "name": "signed_after_start",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-10-04",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": true,
+          "reason": "Names agree across the hire record and all four documents."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": false,
+          "reason": "contract signed 2026-10-04 is after the start date 2026-10-01."
+        }
+      ]
+    },
+    {
+      "name": "missing_contract",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": {
+          "holder_name": "María F Núñez García",
+          "street": null,
+          "neighborhood": null,
+          "city": null,
+          "state": null,
+          "postal_code": null,
+          "issue_date": "2026-07-03",
+          "issuer": null
+        },
+        "contrato": null
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": false,
+          "reason": "Missing name on: contrato."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": false,
+          "reason": "Missing RFC on: contrato."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": true,
+          "reason": "Proof of address issued 2026-07-03 is 90 days before the hire date (limit 90)."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": false,
+          "reason": "contract start date is missing; contract signature date is missing."
+        }
+      ]
+    },
+    {
+      "name": "missing_proof",
+      "application": {
+        "case_id": "EXP-0001",
+        "hire_date": "2026-10-01",
+        "full_name": "María Fernanda Núñez García",
+        "rfc": "NUGA900101AB1",
+        "curp": "NUGA900101MJCZNR09",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "extracted": {
+        "identificacion": {
+          "full_name": "NUNEZ GARCIA, MARIA FERNANDA",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "birth_date": null,
+          "address": null,
+          "sex": null
+        },
+        "constancia_fiscal": {
+          "holder_name": "Maria Fernanda Nunez Garcia",
+          "rfc": "NUGA-900101-AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "postal_code": null,
+          "issue_date": null,
+          "tax_status": null
+        },
+        "comprobante_domicilio": null,
+        "contrato": {
+          "employee_name": "María Fernanda Núñez García",
+          "rfc": "NUGA900101AB1",
+          "curp": "NUGA900101MJCZNR09",
+          "employer": null,
+          "role": null,
+          "signed_date": "2026-09-28",
+          "start_date": "2026-10-01",
+          "contract_kind": null
+        }
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "rules": [
+        {
+          "rule_id": "name_consistency",
+          "passed": false,
+          "reason": "Missing name on: comprobante_domicilio."
+        },
+        {
+          "rule_id": "rfc_consistency",
+          "passed": true,
+          "reason": "RFC agrees on NUGA900101AB1."
+        },
+        {
+          "rule_id": "curp_consistency",
+          "passed": true,
+          "reason": "CURP agrees on NUGA900101MJCZNR09."
+        },
+        {
+          "rule_id": "address_recency",
+          "passed": false,
+          "reason": "Proof of address has no issue date."
+        },
+        {
+          "rule_id": "contract_dates",
+          "passed": true,
+          "reason": "contract start 2026-10-01 vs agreed start 2026-10-01 (0 days <= limit 7); contract signed 2026-09-28 is on or before the start date 2026-10-01."
+        }
+      ]
+    }
+  ],
+  "text_fixtures": [
+    {
+      "name": "constancia_without_banner",
+      "application": {
+        "case_id": "TEXTO",
+        "hire_date": "2026-10-01",
+        "full_name": "Ana Sofía Pérez Silva",
+        "rfc": "PESA800408IG8",
+        "curp": "PESA800408MJCRLN18",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "constancia_fiscal": "CONSTANCIA DE SITUACION FISCAL\nContribuyente: Ana Sofía Pérez Silva\nR.F.C.: PESA-800408-IG8\nClave CURP: PESA800408MJCRLN18\nC.P. fiscal: 44100\nEmitida: 2026-09-10\nSituacion: Activo\n"
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": false,
+            "reason": "Missing name on: identificacion, comprobante_domicilio, contrato."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": false,
+            "reason": "Missing RFC on: identificacion, contrato."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": false,
+            "reason": "Missing CURP on: identificacion."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address has no issue date."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract start date is missing; contract signature date is missing."
+          }
+        ],
+        "warnings": [
+          "constancia_fiscal is missing the synthetic-fixture banner",
+          "missing documents: identificacion, comprobante_domicilio, contrato"
+        ],
+        "extracted": {
+          "identificacion": null,
+          "constancia_fiscal": {
+            "holder_name": "Ana Sofía Pérez Silva",
+            "rfc": "PESA800408IG8",
+            "curp": "PESA800408MJCRLN18",
+            "postal_code": "44100",
+            "issue_date": "2026-09-10",
+            "tax_status": "Activo"
+          },
+          "comprobante_domicilio": null,
+          "contrato": null
+        }
+      }
+    },
+    {
+      "name": "blank_identificacion",
+      "application": {
+        "case_id": "TEXTO",
+        "hire_date": "2026-10-01",
+        "full_name": "Ana Sofía Pérez Silva",
+        "rfc": "PESA800408IG8",
+        "curp": "PESA800408MJCRLN18",
+        "address": "Av. Palma 128",
+        "agreed_start": "2026-10-01"
+      },
+      "documents": {
+        "identificacion": "   "
+      },
+      "address_max_age_days": 90,
+      "contract_max_gap_days": 7,
+      "expected": {
+        "overall_passed": false,
+        "rules": [
+          {
+            "rule_id": "name_consistency",
+            "passed": false,
+            "reason": "Missing name on: identificacion, constancia_fiscal, comprobante_domicilio, contrato."
+          },
+          {
+            "rule_id": "rfc_consistency",
+            "passed": false,
+            "reason": "Missing RFC on: identificacion, constancia_fiscal, contrato."
+          },
+          {
+            "rule_id": "curp_consistency",
+            "passed": false,
+            "reason": "Missing CURP on: identificacion, constancia_fiscal."
+          },
+          {
+            "rule_id": "address_recency",
+            "passed": false,
+            "reason": "Proof of address has no issue date."
+          },
+          {
+            "rule_id": "contract_dates",
+            "passed": false,
+            "reason": "contract start date is missing; contract signature date is missing."
+          }
+        ],
+        "warnings": [
+          "identificacion is missing the synthetic-fixture banner",
+          "identificacion: identificacion text is empty",
+          "missing documents: constancia_fiscal, comprobante_domicilio, contrato"
+        ],
+        "extracted": {
+          "identificacion": null,
+          "constancia_fiscal": null,
+          "comprobante_domicilio": null,
+          "contrato": null
+        }
+      }
+    }
+  ],
+  "name_pairs": [
+    {
+      "left": "María Fernanda Núñez García",
+      "right": "Maria Fernanda Nunez Garcia",
+      "match": true
+    },
+    {
+      "left": "Núñez García, María Fernanda",
+      "right": "María Fernanda Núñez García",
+      "match": true
+    },
+    {
+      "left": "María F Núñez García",
+      "right": "María Fernanda Núñez García",
+      "match": true
+    },
+    {
+      "left": "María del Carmen Ruiz",
+      "right": "Maria Carmen Ruiz",
+      "match": true
+    },
+    {
+      "left": "María de las Nieves Sol",
+      "right": "Maria Nieves Sol",
+      "match": true
+    },
+    {
+      "left": "María Fernanda",
+      "right": "Maria Fernada",
+      "match": true
+    },
+    {
+      "left": "María Fernanda",
+      "right": "Maria Fernando",
+      "match": false
+    },
+    {
+      "left": "Ana López",
+      "right": "Ana López Díaz",
+      "match": false
+    },
+    {
+      "left": "María Fernanda Núñez García",
+      "right": "Juan Carlos Pérez López",
+      "match": false
+    },
+    {
+      "left": "Ana",
+      "right": "A",
+      "match": true
+    },
+    {
+      "left": null,
+      "right": "Ana",
+      "match": false
+    },
+    {
+      "left": "",
+      "right": "Ana",
+      "match": false
+    }
+  ],
+  "ratios": [
+    {
+      "left": "FERNANDA",
+      "right": "FERNADA",
+      "ratio": 0.9333333333333333
+    },
+    {
+      "left": "FERNANDA",
+      "right": "FERNANDO",
+      "ratio": 0.875
+    },
+    {
+      "left": "HERNANDEZ",
+      "right": "HERNANDES",
+      "ratio": 0.8888888888888888
+    },
+    {
+      "left": "abcd",
+      "right": "bcde",
+      "ratio": 0.75
+    },
+    {
+      "left": "abxcd",
+      "right": "abcd",
+      "ratio": 0.8888888888888888
+    },
+    {
+      "left": "private Thread currentThread;",
+      "right": "private volatile Thread currentThread;",
+      "ratio": 0.8656716417910447
+    },
+    {
+      "left": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefghijXYZ",
+      "right": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefghijXYZaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "ratio": 0.8223350253807107
+    },
+    {
+      "left": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZque",
+      "right": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZqui",
+      "ratio": 0.9955156950672646
+    }
+  ]
+}
