@@ -35,6 +35,14 @@ def test_readme_links_the_site_at_the_top() -> None:
     assert "https://eflores1122.github.io/llm-document-validator-mx/" in head
 
 
+def test_site_says_the_scores_are_not_a_vendor_measurement() -> None:
+    app = (ROOT / "site" / "app.js").read_text(encoding="utf-8")
+    html = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+    assert 'data-i18n="measureNote"' in html
+    assert "Not a LlamaParse or OpenAI score." in app
+    assert "No es una medición de LlamaParse ni de OpenAI." in app
+
+
 def test_pages_workflow_publishes_the_site() -> None:
     text = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
     for snippet in (

@@ -28,9 +28,40 @@ jobs:
           python -m ruff check .
           python -m ruff format --check .
       - name: Test
-        env:
-          OPENAI_API_KEY: ""
-          LLAMA_CLOUD_API_KEY: ""
-        run: python -m pytest
+        run: |
+          unset OPENAI_API_KEY LLAMA_CLOUD_API_KEY OPENAI_MODEL LLAMA_PARSE_TIER \
+            LLAMA_PARSE_TIMEOUT_S LLAMA_CLOUD_BASE_URL || true
+          python -m pytest
+      - name: No-key CLI
+        run: |
+          unset OPENAI_API_KEY LLAMA_CLOUD_API_KEY OPENAI_MODEL LLAMA_PARSE_TIER \
+            LLAMA_PARSE_TIMEOUT_S LLAMA_CLOUD_BASE_URL || true
+          export OPENAI_API_KEY=""
+          export LLAMA_CLOUD_API_KEY=""
+          # A vendor call should fail immediately instead of waiting on the network.
+          export http_proxy="http://127.0.0.1:9"
+          export https_proxy="http://127.0.0.1:9"
+          export HTTP_PROXY="http://127.0.0.1:9"
+          export HTTPS_PROXY="http://127.0.0.1:9"
+          cases="${RUNNER_TEMP}/nokey-cases"
+          eval_out="${RUNNER_TEMP}/nokey-eval"
+          python -m docval run data/golden/cases/EXP-0004 --out "$cases"
+          python -m docval eval --golden data/golden --out "$eval_out"
+          python - "$cases/EXP-0004.json" "$eval_out/report.json" <<'PY'
+          import json
+          import sys
+
+          case = json.loads(open(sys.argv[1], encoding="utf-8").read())
+          report = json.loads(open(sys.argv[2], encoding="utf-8").read())
+          assert case["parser_backend"].startswith("local:"), case["parser_backend"]
+          assert case["extractor_backend"] == "deterministic", case["extractor_backend"]
+          assert case["overall_passed"] is False
+          assert report["parser_backend"].startswith("local:"), report["parser_backend"]
+          assert report["extractor_backend"] == "deterministic", report["extractor_backend"]
+          assert report["disagreements"] == []
+          assert report["cases"] == 24
+          assert report["overall"]["fp"] == 0 and report["overall"]["fn"] == 0
+          print(report["parser_backend"], report["extractor_backend"], "cases", report["cases"])
+          PY
       - name: Browser rules match Python
         run: node site/check-engine.mjs

@@ -112,12 +112,32 @@ def eval_cmd(
     out: Annotated[
         Path, typer.Option("--out", help="Directory for the Markdown and JSON report.")
     ] = Path("reports/eval"),
+    parser: Annotated[
+        str,
+        typer.Option(
+            "--parser",
+            help="Parser to score. Default local, even when LLAMA_CLOUD_API_KEY is set.",
+        ),
+    ] = "local",
+    extractor: Annotated[
+        str,
+        typer.Option(
+            "--extractor",
+            help="Extractor to score. Default deterministic, even when OPENAI_API_KEY is set.",
+        ),
+    ] = "deterministic",
 ) -> None:
-    """Score the pipeline against golden labels and write the eval report."""
+    """Score golden labels. Defaults to the no-key parser and extractor."""
     if not (golden / "manifest.json").is_file():
         raise typer.BadParameter(f"{golden} has no manifest.json. Run `docval generate` first.")
     try:
-        payload = run_eval(golden, out, load_settings())
+        payload = run_eval(
+            golden,
+            out,
+            load_settings(),
+            parser_name=parser,
+            extractor_name=extractor,
+        )
     except DocvalError as exc:
         raise typer.BadParameter(str(exc)) from exc
     typer.echo(render_markdown(payload))
