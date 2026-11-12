@@ -41,6 +41,8 @@ def test_site_says_the_scores_are_not_a_vendor_measurement() -> None:
     assert 'data-i18n="measureNote"' in html
     assert "Not a LlamaParse or OpenAI score." in app
     assert "No es una medición de LlamaParse ni de OpenAI." in app
+    assert "A perfect rule score does not show that every printed field was recovered" in app
+    assert "Una puntuación perfecta de reglas no demuestra que cada campo se recuperó" in app
 
 
 def test_pages_workflow_publishes_the_site() -> None:

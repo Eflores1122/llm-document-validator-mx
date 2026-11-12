@@ -399,8 +399,18 @@ def render_markdown(payload: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def _vendor_clause(parser: str, extractor: str) -> str:
+    """Say whether this run is the committed no-key score."""
+    local = parser == "local" or parser.startswith("local:")
+    if local and extractor == "deterministic":
+        return "LlamaParse and OpenAI are not scored."
+    return "This run scores a vendor backend, so it is not the committed no-key score."
+
+
 def _reading_note(payload: dict[str, Any]) -> str:
     """State what the tables measure, using counts from this run."""
+    parser = str(payload["parser_backend"])
+    extractor = str(payload["extractor_backend"])
     rule_events = sum(int(stats["support_fail"]) for stats in payload["rules"].values())
     files_fail = int(payload["overall"]["support_fail"])
     files_pass = int(payload["overall"]["support_pass"])
@@ -409,11 +419,14 @@ def _reading_note(payload: dict[str, Any]) -> str:
     slots = int(fields["slots"])
     exact = int(fields["exact_matches"])
     return (
-        f"These scores use parser `{payload['parser_backend']}` and extractor "
-        f"`{payload['extractor_backend']}` only. LlamaParse and OpenAI are not scored. "
+        f"These scores use parser `{parser}` and extractor `{extractor}` only. "
+        f"{_vendor_clause(parser, extractor)} "
         "Each labels.json expected_rules entry was produced by the same review functions "
-        "on the fields the generator printed, so a perfect rule score means parse and "
-        "extraction recovered those fields. "
+        "on the fields the generator printed. Those functions read only the fields a rule "
+        "needs. Recovering every printed field implies the same rule decision. A perfect "
+        "rule score does not imply that every printed field was recovered, because a wrong "
+        "value the rules do not read can leave every decision unchanged. Field recovery is "
+        "the field table. "
         f"The overall row is one decision per file (fail if any rule fails): {files_fail} "
         f"files fail and {files_pass} pass. The rule rows count {rule_events} failing rule "
         "decisions, which is higher when a file fails more than one rule. "

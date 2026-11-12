@@ -49,7 +49,7 @@ flowchart LR
   Report --> Eval[Precision, recall, accuracy vs labels.json]
 ```
 
-`application.json` is the hire record (name, RFC, CURP, address, hire date, agreed start). `labels.json` is eval-only. `docval run` never reads it. Labels are produced by running the review rules on the fields that were printed. Those functions are deterministic, so once parse and extraction recover the printed fields the rules make the same decision. The result that is not automatic is field recovery. Rule boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are also covered by unit tests that do not go through the generator.
+`application.json` is the hire record (name, RFC, CURP, address, hire date, agreed start). `labels.json` is eval-only. `docval run` never reads it. Labels are produced by running the review rules on the fields that were printed. Those functions read only the fields a rule needs. Recovering every printed field implies the same rule decision. A matching rule score does not, by itself, show that every printed field was recovered. That is what the field table measures. Rule boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are also covered by unit tests that do not go through the generator.
 
 ## Quickstart
 
@@ -159,7 +159,7 @@ The tables below are the no-key path on the committed synthetic files: parser `l
 
 The positive class for a rule is a **fail**: a defect the reviewer should catch. Precision is the share of predicted failures that are real. Recall is the share of labeled failures the pipeline caught. Accuracy counts both correct passes and correct failures.
 
-`labels.json` stores `expected_rules` by running those same rules on the fields the generator printed. The functions are deterministic, so once parse and extraction recover those fields the rules replay the same pass or fail. A perfect rule score is that replay, not a second measurement of the rules. The boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are covered by unit tests that do not go through the generator.
+`labels.json` stores `expected_rules` by running those same rules on the fields the generator printed. The functions read only the fields a rule needs, so recovering every printed field makes the rules replay the same pass or fail. A perfect rule score does not imply that recovery. A wrong employer name or tax status, which no rule reads, leaves every decision unchanged. Field recovery is the field table. The boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are covered by unit tests that do not go through the generator.
 
 The overall row is one decision per file. A file fails if any rule fails, so its fail count is not the sum of the rule rows. On this dataset, 18 of 24 files fail at least one rule and 6 pass every rule. The rule rows add up to 22 failing decisions because four files fail two rules each.
 
@@ -189,7 +189,7 @@ Field scores compare extracted values with the printed ground truth (672 slots).
 <!-- field-table:end -->
 
 <!-- eval-reading:start -->
-These scores use parser `local:pdfplumber` and extractor `deterministic` only. LlamaParse and OpenAI are not scored. Each labels.json expected_rules entry was produced by the same review functions on the fields the generator printed, so a perfect rule score means parse and extraction recovered those fields. The overall row is one decision per file (fail if any rule fails): 18 files fail and 6 pass. The rule rows count 22 failing rule decisions, which is higher when a file fails more than one rule. Field exact match is 672 of 672 slots. 2 of those matches are slots that are empty in the label and empty in the extraction. Field precision and recall use a non-empty printed value as the positive class. A wrong non-empty value counts as both a false positive and a false negative.
+These scores use parser `local:pdfplumber` and extractor `deterministic` only. LlamaParse and OpenAI are not scored. Each labels.json expected_rules entry was produced by the same review functions on the fields the generator printed. Those functions read only the fields a rule needs. Recovering every printed field implies the same rule decision. A perfect rule score does not imply that every printed field was recovered, because a wrong value the rules do not read can leave every decision unchanged. Field recovery is the field table. The overall row is one decision per file (fail if any rule fails): 18 files fail and 6 pass. The rule rows count 22 failing rule decisions, which is higher when a file fails more than one rule. Field exact match is 672 of 672 slots. 2 of those matches are slots that are empty in the label and empty in the extraction. Field precision and recall use a non-empty printed value as the positive class. A wrong non-empty value counts as both a false positive and a false negative.
 <!-- eval-reading:end -->
 
 <!-- eval-timing:start -->
@@ -200,7 +200,7 @@ The committed JSON (`reports/eval/report.json`) records mean 0.405 ms, p50 0.337
 
 That latency is machine time on small digital PDFs with a deterministic extractor. Classification metrics are deterministic; latency will move with the machine.
 
-A perfect score here means the deterministic extractor recovers both synthetic layouts, including hyphenated RFC/CURP strings, and the rules then replay the labels. It does not measure LlamaParse or OpenAI. To point the same harness at another backend, pass `--parser` and `--extractor`. Those runs are not the committed report.
+A perfect score on both tables means the deterministic extractor recovers both synthetic layouts, including hyphenated RFC/CURP strings, and the rules then replay the labels. The rule table alone does not show that recovery. This committed report does not measure LlamaParse or OpenAI. To point the same harness at another backend, pass `--parser` and `--extractor`. That report names the backends it actually scored, and it is not the committed no-key score.
 
 ## Design decisions
 

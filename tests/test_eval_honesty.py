@@ -10,7 +10,7 @@ from typer.testing import CliRunner
 
 from docval.cli import app
 from docval.errors import ExtractionError
-from docval.evaluate import Counts, record_field, render_markdown, run_eval
+from docval.evaluate import Counts, field_mismatches, record_field, render_markdown, run_eval
 from docval.extractors import OpenAIExtractor
 from docval.generate import write_dataset
 
@@ -114,6 +114,10 @@ def test_eval_flag_can_still_select_openai(monkeypatch: pytest.MonkeyPatch, tmp_
     assert payload["extractor_backend"] == "openai"
     assert payload["parser_backend"].startswith("local:")
     assert payload["disagreements"]
+    note = render_markdown(payload)
+    assert "LlamaParse and OpenAI are not scored." not in note
+    assert "extractor `openai`" in note
+    assert "not the committed no-key score" in note
 
 
 def test_cli_eval_stays_local_when_vendor_keys_are_set(
@@ -163,9 +167,88 @@ def test_committed_eval_markdown_matches_renderer() -> None:
     rendered = render_markdown(payload)
     assert rendered == (ROOT / "reports" / "eval" / "report.md").read_text(encoding="utf-8")
     assert "LlamaParse and OpenAI are not scored." in rendered
+    assert "does not imply that every printed field was recovered" in rendered
+    assert "Field recovery is the field table." in rendered
     assert "18 files fail and 6 pass" in rendered
     assert "22 failing rule" in rendered
     assert "2 of those matches are slots" in rendered
+
+
+def test_reading_note_follows_the_backends_that_ran() -> None:
+    def report(parser: str, extractor: str) -> str:
+        stats = {
+            "support_fail": 0,
+            "support_pass": 1,
+            "precision": 1.0,
+            "recall": 1.0,
+            "accuracy": 1.0,
+        }
+        payload = {
+            "dataset": "demo",
+            "seed": 1,
+            "cases": 1,
+            "parser_backend": parser,
+            "extractor_backend": extractor,
+            "contract_max_gap_days": 7,
+            "address_max_age_days": 90,
+            "timing": {"mean_ms": 1.0, "p50_ms": 1.0, "p95_ms": 1.0},
+            "rules": {"name_consistency": stats},
+            "overall": stats,
+            "fields": {
+                "slots": 1,
+                "exact_matches": 1,
+                "accuracy": 1.0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "tn": 0,
+                "by_document": {
+                    "identificacion": {
+                        "slots": 1,
+                        "accuracy": 1.0,
+                        "precision": 1.0,
+                        "recall": 1.0,
+                    }
+                },
+            },
+            "disagreements": [],
+        }
+        return render_markdown(payload)
+
+    local = report("local:pdfplumber", "deterministic")
+    assert "LlamaParse and OpenAI are not scored." in local
+    for parser, extractor in (
+        ("local:pdfplumber", "openai"),
+        ("llamaparse", "deterministic"),
+        ("llamaparse", "openai"),
+    ):
+        text = report(parser, extractor)
+        assert "LlamaParse and OpenAI are not scored." not in text
+        assert f"parser `{parser}`" in text
+        assert f"extractor `{extractor}`" in text
+        assert "not the committed no-key score" in text
+
+
+def test_rule_agreement_can_hide_fields_the_rules_do_not_read() -> None:
+    from docval.config import Settings
+    from docval.pipeline import validate_case_dir
+    from docval.rules import run_rules
+    from docval.schemas import Labels
+
+    case_dir = ROOT / "data" / "golden" / "cases" / "EXP-0001"
+    report = validate_case_dir(case_dir)
+    labels = Labels.model_validate(
+        json.loads((case_dir / "labels.json").read_text(encoding="utf-8"))
+    )
+    assert report.extracted.constancia_fiscal is not None
+    assert report.extracted.contrato is not None
+    report.extracted.constancia_fiscal.tax_status = "Cancelado"
+    report.extracted.contrato.employer = "Otra Empresa SA de CV"
+    rerun = run_rules(report.application, report.extracted, Settings())
+    for rule in rerun:
+        assert rule.passed == labels.expected_rules[rule.rule_id].passed
+    mismatches = field_mismatches(report, labels)
+    assert any("tax_status" in item for item in mismatches)
+    assert any("employer" in item for item in mismatches)
 
 
 def test_ci_runs_the_nokey_cli() -> None:
