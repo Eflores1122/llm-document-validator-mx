@@ -20,7 +20,8 @@ generate:
 	$(PYTHON) -m docval generate --out data/golden --cases 24 --seed 42 --force
 
 eval:
-	$(PYTHON) -m docval eval --golden data/golden --out reports/eval
+	env -u OPENAI_API_KEY -u LLAMA_CLOUD_API_KEY \
+		$(PYTHON) -m docval eval --golden data/golden --out reports/eval
 
 run:
 	$(PYTHON) -m docval run data/golden --out reports/cases

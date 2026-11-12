@@ -49,7 +49,7 @@ flowchart LR
   Report --> Eval[Precision, recall, accuracy vs labels.json]
 ```
 
-`application.json` is the hire record (name, RFC, CURP, address, hire date, agreed start). `labels.json` is eval-only. `docval run` never reads it. Labels are produced by running the review rules on the fields that were printed. The score is whether parse and extraction recover those fields and whether the rules then make the same decision. Rule boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are also covered by unit tests that do not go through the generator.
+`application.json` is the hire record (name, RFC, CURP, address, hire date, agreed start). `labels.json` is eval-only. `docval run` never reads it. Labels are produced by running the review rules on the fields that were printed. Those functions read only the fields a rule needs. Recovering every printed field implies the same rule decision. A matching rule score does not, by itself, show that every printed field was recovered. That is what the field table measures. Rule boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are also covered by unit tests that do not go through the generator.
 
 ## Quickstart
 
@@ -60,7 +60,7 @@ python -m pip install -e ".[dev,api]"
 python -m docval eval
 ```
 
-That command scores the committed dataset in `data/golden` (24 cases, seed 42) and writes `reports/eval/report.md` and `reports/eval/report.json`.
+That command scores the committed dataset in `data/golden` (24 cases, seed 42) and writes `reports/eval/report.md` and `reports/eval/report.json`. It always uses the local parser and the deterministic extractor, even when `OPENAI_API_KEY` or `LLAMA_CLOUD_API_KEY` is set. Pass `--parser` and `--extractor` to score another backend. That opt-in path is not part of the numbers below.
 
 Review one file:
 
@@ -99,7 +99,7 @@ Case ids must look like `EXP-0001`. The handler resolves the folder and refuses 
 
 ## Sample output
 
-Fresh-process runs against the committed fixtures:
+Fresh-process runs against the committed fixtures. The milliseconds are `elapsed_ms` from the JSON files in `reports/examples` on the machine that wrote them. Pass, fail, and the rule id are the result to check. The times are not a benchmark.
 
 ```text
 $ python -m docval run data/golden/cases/EXP-0001 --out reports/examples
@@ -155,9 +155,15 @@ Files that should pass still exercise the matcher. `EXP-0001` prints the identif
 
 ## Evaluation
 
-The positive class is a **fail**: a defect the reviewer should catch. Precision is the share of predicted failures that are real. Recall is the share of labeled failures the pipeline caught. Accuracy counts both correct passes and correct failures.
+The tables below are the no-key path on the committed synthetic files: parser `local:pdfplumber`, extractor `deterministic`. They are not a LlamaParse or OpenAI result, and they are not an estimate of accuracy on real scans or on layouts this generator does not print.
 
-These tables are copied from [`reports/eval/report.md`](reports/eval/report.md), produced by `python -m docval eval` on `data/golden` (seed 42, 24 files, parser `local:pdfplumber`, extractor `deterministic`). There were no disagreements with the labels.
+The positive class for a rule is a **fail**: a defect the reviewer should catch. Precision is the share of predicted failures that are real. Recall is the share of labeled failures the pipeline caught. Accuracy counts both correct passes and correct failures.
+
+`labels.json` stores `expected_rules` by running those same rules on the fields the generator printed. The functions read only the fields a rule needs, so recovering every printed field makes the rules replay the same pass or fail. A perfect rule score does not imply that recovery. A wrong employer name or tax status, which no rule reads, leaves every decision unchanged. Field recovery is the field table. The boundaries (the 7-day contract-start tie, the 90-day address tie, accents, initials, surname-first order) are covered by unit tests that do not go through the generator.
+
+The overall row is one decision per file. A file fails if any rule fails, so its fail count is not the sum of the rule rows. On this dataset, 18 of 24 files fail at least one rule and 6 pass every rule. The rule rows add up to 22 failing decisions because four files fail two rules each.
+
+These tables, and the note under them, are copied from [`reports/eval/report.md`](reports/eval/report.md), produced by `python -m docval eval` on `data/golden` (seed 42, 24 files). That command forces the local parser and the deterministic extractor even when vendor keys are set. There were no disagreements with the labels.
 
 <!-- eval-table:start -->
 | Rule | Fail | Pass | Precision | Recall | Accuracy |
@@ -170,7 +176,7 @@ These tables are copied from [`reports/eval/report.md`](reports/eval/report.md),
 | overall | 18 | 6 | 100.0% | 100.0% | 100.0% |
 <!-- eval-table:end -->
 
-Field scores compare extracted values with the printed ground truth (672 slots). Names match under the same policy as the name rule. RFC and CURP are compared after punctuation is removed. Dates and the remaining strings are compared exactly.
+Field scores compare extracted values with the printed ground truth (672 slots). Names match under the same policy as the name rule. RFC and CURP are compared after punctuation is removed. Dates and the remaining strings are compared exactly. An empty label and an empty extraction count as a match. On this dataset those two empty matches are `contrato.signed_date` on EXP-0009 and EXP-0021, the files whose contract omits the signature date. Field precision and recall treat a non-empty printed value as the positive class, so those two blanks do not enter that denominator. A wrong non-empty value counts as both a false positive and a false negative, so the two rates move together when extraction is wrong. On this set every slot matched, so both rates are 100%.
 
 <!-- field-table:start -->
 | Document | Slots | Exact match | Precision | Recall |
@@ -182,6 +188,10 @@ Field scores compare extracted values with the printed ground truth (672 slots).
 | all fields | 672 | 100.0% | 100.0% | 100.0% |
 <!-- field-table:end -->
 
+<!-- eval-reading:start -->
+These scores use parser `local:pdfplumber` and extractor `deterministic` only. LlamaParse and OpenAI are not scored. Each labels.json expected_rules entry was produced by the same review functions on the fields the generator printed. Those functions read only the fields a rule needs. Recovering every printed field implies the same rule decision. A perfect rule score does not imply that every printed field was recovered, because a wrong value the rules do not read can leave every decision unchanged. Field recovery is the field table. The overall row is one decision per file (fail if any rule fails): 18 files fail and 6 pass. The rule rows count 22 failing rule decisions, which is higher when a file fails more than one rule. Field exact match is 672 of 672 slots. 2 of those matches are slots that are empty in the label and empty in the extraction. Field precision and recall use a non-empty printed value as the positive class. A wrong non-empty value counts as both a false positive and a false negative.
+<!-- eval-reading:end -->
+
 <!-- eval-timing:start -->
 Mean 0.4 ms per file (p50 0.3 ms, p95 1.0 ms) over 24 files.
 <!-- eval-timing:end -->
@@ -190,12 +200,12 @@ The committed JSON (`reports/eval/report.json`) records mean 0.405 ms, p50 0.337
 
 That latency is machine time on small digital PDFs with a deterministic extractor. Classification metrics are deterministic; latency will move with the machine.
 
-A perfect score here means the deterministic extractor recovers both synthetic layouts, including hyphenated RFC/CURP strings, and the rules agree with the labels on every injected defect and every near miss. The same harness is what you would point at the OpenAI extractor for messier documents.
+A perfect score on both tables means the deterministic extractor recovers both synthetic layouts, including hyphenated RFC/CURP strings, and the rules then replay the labels. The rule table alone does not show that recovery. This committed report does not measure LlamaParse or OpenAI. To point the same harness at another backend, pass `--parser` and `--extractor`. That report names the backends it actually scored, and it is not the committed no-key score.
 
 ## Design decisions
 
 - **Two layouts, one schema.** Each document type is rendered in two label variants (for example `Fecha de inicio` and `Fecha de ingreso`, `Contrato laboral` and `Carta oferta`, `Nombre` and `Contribuyente`). The deterministic extractor accepts both. Unseen layouts are the job of the OpenAI extractor, which asks `chat.completions.parse` for the same Pydantic model.
-- **Keys select the backend.** `LLAMA_CLOUD_API_KEY` selects LlamaParse (`POST /api/v2/parse/upload`, then poll `expand=text_full`). `OPENAI_API_KEY` selects structured extraction. Empty values count as unset. The LlamaParse client uses the standard library, so the optional parser does not add a required dependency.
+- **Keys select the backend for `docval run`.** `LLAMA_CLOUD_API_KEY` selects LlamaParse (`POST /api/v2/parse/upload`, then poll `expand=text_full`). `OPENAI_API_KEY` selects structured extraction. Empty values count as unset. `docval eval` does not follow that switch: its default stays on the local parser and the deterministic extractor so the published score cannot change because a key happens to be in the environment. The LlamaParse client uses the standard library, so the optional parser does not add a required dependency.
 - **Fail closed.** A missing name, RFC, CURP, issue date, contract start, or signature date fails the rule that needs it. The report says which field was missing. A document that never arrives does the same: the rules that needed its fields fail, and the report adds a warning that lists the missing documents.
 - **Name policy.** Comparison ignores accents, case, punctuation, and the particles de/del/la/los/y. Surname-first order matches. A single initial may match the word it starts. An extra surname on only one side does not match. Token typos must be very close (ratio at least 0.92, and only for tokens of length 5 or more).
 - **Contract dates.** The contract start must fall within `DOCVAL_CONTRACT_MAX_GAP_DAYS` of the agreed start (default 7 days). A gap equal to the limit passes; 8 days fails; the dataset's 30-day miss fails. The signature date must be present and on or before the start date. A contract with no signature date fails.
@@ -225,13 +235,13 @@ tests/                pytest, including the no-key path
 
 ```bash
 make test          # ruff + pytest, no API keys
-make eval          # rewrite reports/eval from data/golden
+make eval          # rewrite reports/eval on the no-key path
 make generate      # rebuild data/golden with seed 42
 docker build -t docval:local .
 docker run --rm docval:local
 ```
 
-CI is `.github/workflows/ci.yml`. It installs the `dev` extra on Python 3.11 and 3.12, runs Ruff (`ruff check` and `ruff format --check`), and runs pytest with `OPENAI_API_KEY` and `LLAMA_CLOUD_API_KEY` set to empty strings. A test reruns the eval and checks that classification metrics still match `reports/eval/report.json`, and that this README still quotes that report.
+CI is `.github/workflows/ci.yml`. It installs the `dev` extra on Python 3.11 and 3.12, runs Ruff (`ruff check` and `ruff format --check`), and runs pytest with `OPENAI_API_KEY` and `LLAMA_CLOUD_API_KEY` unset. It then runs `python -m docval run` and `python -m docval eval` with those keys blank, behind a proxy that rejects outbound HTTP, and checks that the report used the local parser and the deterministic extractor. A test reruns the eval and checks that classification metrics still match `reports/eval/report.json`, and that this README still quotes that report, including the note about what the 100% figures mean.
 
 Configuration lives in `.env.example`. Thresholds are `DOCVAL_CONTRACT_MAX_GAP_DAYS` (default `7`) and `DOCVAL_ADDRESS_MAX_AGE_DAYS` (default `90`).
 

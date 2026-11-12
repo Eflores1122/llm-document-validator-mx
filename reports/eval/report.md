@@ -26,6 +26,10 @@ Contract start window 7 days. Address window 90 days.
 | all fields | 672 | 100.0% | 100.0% | 100.0% |
 <!-- field-table:end -->
 
+<!-- eval-reading:start -->
+These scores use parser `local:pdfplumber` and extractor `deterministic` only. LlamaParse and OpenAI are not scored. Each labels.json expected_rules entry was produced by the same review functions on the fields the generator printed. Those functions read only the fields a rule needs. Recovering every printed field implies the same rule decision. A perfect rule score does not imply that every printed field was recovered, because a wrong value the rules do not read can leave every decision unchanged. Field recovery is the field table. The overall row is one decision per file (fail if any rule fails): 18 files fail and 6 pass. The rule rows count 22 failing rule decisions, which is higher when a file fails more than one rule. Field exact match is 672 of 672 slots. 2 of those matches are slots that are empty in the label and empty in the extraction. Field precision and recall use a non-empty printed value as the positive class. A wrong non-empty value counts as both a false positive and a false negative.
+<!-- eval-reading:end -->
+
 <!-- eval-timing:start -->
 Mean 0.4 ms per file (p50 0.3 ms, p95 1.0 ms) over 24 files.
 <!-- eval-timing:end -->

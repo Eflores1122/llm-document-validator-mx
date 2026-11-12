@@ -170,8 +170,41 @@ def _percentile(values: list[float], pct: float) -> float:
     return ordered[low] * (1 - weight) + ordered[high] * weight
 
 
-def run_eval(golden: Path, out: Path, settings: Settings | None = None) -> dict[str, Any]:
-    """Run every golden case and write report.json plus report.md."""
+def record_field(counts: Counts, kind: str, gold: object, pred: object) -> bool:
+    """Score one extracted slot. Returns whether it matched the printed value.
+
+    A non-empty printed value is the positive class. Both sides empty is a
+    true negative and still an exact match. A wrong non-empty value counts as
+    both a false positive and a false negative.
+    """
+    matched = values_match(kind, gold, pred)
+    if matched and _missing(gold):
+        counts.tn += 1
+    elif matched:
+        counts.tp += 1
+    elif _missing(gold):
+        counts.fp += 1
+    elif _missing(pred):
+        counts.fn += 1
+    else:
+        counts.fp += 1
+        counts.fn += 1
+    return matched
+
+
+def run_eval(
+    golden: Path,
+    out: Path,
+    settings: Settings | None = None,
+    *,
+    parser_name: str = "local",
+    extractor_name: str = "deterministic",
+) -> dict[str, Any]:
+    """Run every golden case and write report.json plus report.md.
+
+    The default backends are the no-key path. Ambient vendor keys are ignored
+    unless `parser_name` or `extractor_name` asks for them.
+    """
     settings = settings or load_settings()
     importlib.import_module("pdfplumber")
     importlib.import_module("pypdf")
@@ -192,7 +225,12 @@ def run_eval(golden: Path, out: Path, settings: Settings | None = None) -> dict[
 
     for case_id in case_ids:
         case_dir = golden / "cases" / case_id
-        report = validate_case_dir(case_dir, settings=settings)
+        report = validate_case_dir(
+            case_dir,
+            settings=settings,
+            parser_name=parser_name,
+            extractor_name=extractor_name,
+        )
         labels = Labels.model_validate(
             json.loads((case_dir / "labels.json").read_text(encoding="utf-8"))
         )
@@ -226,30 +264,14 @@ def run_eval(golden: Path, out: Path, settings: Settings | None = None) -> dict[
         for document, field, kind in FIELD_SPECS:
             gold = _field(labels.truth, document, field)
             pred = _field(report.extracted, document, field)
-            matched = values_match(kind, gold, pred)
+            matched = record_field(field_counts, kind, gold, pred)
+            doc_counts = by_document.setdefault(document, Counts())
+            record_field(doc_counts, kind, gold, pred)
             field_slots += 1
             field_matches += int(matched)
-            doc_counts = by_document.setdefault(document, Counts())
             slots = by_document_slots.setdefault(document, [0, 0])
             slots[0] += 1
             slots[1] += int(matched)
-            if matched and _missing(gold):
-                doc_counts.tn += 1
-                field_counts.tn += 1
-            elif matched:
-                doc_counts.tp += 1
-                field_counts.tp += 1
-            elif _missing(gold):
-                doc_counts.fp += 1
-                field_counts.fp += 1
-            elif _missing(pred):
-                doc_counts.fn += 1
-                field_counts.fn += 1
-            else:
-                doc_counts.fp += 1
-                doc_counts.fn += 1
-                field_counts.fp += 1
-                field_counts.fn += 1
         case_results.append(
             {
                 "case_id": case_id,
@@ -348,6 +370,10 @@ def render_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
+            "<!-- eval-reading:start -->",
+            _reading_note(payload),
+            "<!-- eval-reading:end -->",
+            "",
             "<!-- eval-timing:start -->",
             (
                 f"Mean {timing['mean_ms']:.1f} ms per file "
@@ -371,6 +397,44 @@ def render_markdown(payload: dict[str, Any]) -> str:
         lines.append("No disagreements between the pipeline and the golden labels.")
     lines.append("")
     return "\n".join(lines)
+
+
+def _vendor_clause(parser: str, extractor: str) -> str:
+    """Say whether this run is the committed no-key score."""
+    local = parser == "local" or parser.startswith("local:")
+    if local and extractor == "deterministic":
+        return "LlamaParse and OpenAI are not scored."
+    return "This run scores a vendor backend, so it is not the committed no-key score."
+
+
+def _reading_note(payload: dict[str, Any]) -> str:
+    """State what the tables measure, using counts from this run."""
+    parser = str(payload["parser_backend"])
+    extractor = str(payload["extractor_backend"])
+    rule_events = sum(int(stats["support_fail"]) for stats in payload["rules"].values())
+    files_fail = int(payload["overall"]["support_fail"])
+    files_pass = int(payload["overall"]["support_pass"])
+    fields = payload["fields"]
+    blanks = int(fields["tn"])
+    slots = int(fields["slots"])
+    exact = int(fields["exact_matches"])
+    return (
+        f"These scores use parser `{parser}` and extractor `{extractor}` only. "
+        f"{_vendor_clause(parser, extractor)} "
+        "Each labels.json expected_rules entry was produced by the same review functions "
+        "on the fields the generator printed. Those functions read only the fields a rule "
+        "needs. Recovering every printed field implies the same rule decision. A perfect "
+        "rule score does not imply that every printed field was recovered, because a wrong "
+        "value the rules do not read can leave every decision unchanged. Field recovery is "
+        "the field table. "
+        f"The overall row is one decision per file (fail if any rule fails): {files_fail} "
+        f"files fail and {files_pass} pass. The rule rows count {rule_events} failing rule "
+        "decisions, which is higher when a file fails more than one rule. "
+        f"Field exact match is {exact} of {slots} slots. {blanks} of those matches are slots "
+        "that are empty in the label and empty in the extraction. "
+        "Field precision and recall use a non-empty printed value as the positive class. "
+        "A wrong non-empty value counts as both a false positive and a false negative."
+    )
 
 
 def _rule_row(name: str, stats: dict[str, Any]) -> str:

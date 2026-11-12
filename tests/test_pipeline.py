@@ -210,6 +210,7 @@ def test_readme_quotes_the_committed_eval_report() -> None:
     for start, end in (
         ("<!-- eval-table:start -->", "<!-- eval-table:end -->"),
         ("<!-- field-table:start -->", "<!-- field-table:end -->"),
+        ("<!-- eval-reading:start -->", "<!-- eval-reading:end -->"),
         ("<!-- eval-timing:start -->", "<!-- eval-timing:end -->"),
     ):
         section = report.split(start, 1)[1].split(end, 1)[0].strip()

@@ -18,5 +18,6 @@ RUN pip install --no-cache-dir ".[api]" \
 
 USER appuser
 
+# `docval eval` scores the local parser and the deterministic extractor.
 ENTRYPOINT ["docval"]
 CMD ["eval", "--golden", "data/golden", "--out", "reports/eval"]
